@@ -6,9 +6,17 @@ struct FlightList{
     FlightList * next;
 };
 
-class Airpline {       
+class Airline {       
   public:  
-           
+    Airline(std::string name, FlightList* list, int num);
+    Airline(const Airline& source);
+    ~Airline();
+    void set_name(std::string Name);
+    void set_list(FlightList* List);
+    void set_num(int n);
+    const std::string get_name()const;
+    const FlightList* get_list()const;
+    const int get_num()const;
   private:          
     std::string airline_name;
     FlightList* flight_listH;
