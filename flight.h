@@ -1,19 +1,22 @@
+#include<seat.h>
 #include<vector>
 #include <string>
 
 struct PassengerList{
-    
+    int pass_id;
     PassengerList * next;
 };
 
-class Airpline {       
+typedef std::vector< std::vector<Seat> > SeatMap;
+
+class Flight {       
   public:  
-    // .checkseatavailability???
+    // .checkseatavailability
   private:          
     std::string flight_id;
     int rows;
     int columns;
     PassengerList* pass_listH;
-    // seat map datamember: vector of vector
+    SeatMap FSmap;
     
 };

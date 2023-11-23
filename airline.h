@@ -2,11 +2,11 @@
 #include <string>
 
 struct FlightList{
-    std::string Fname;
+    std::string flight_id;
     FlightList * next;
 };
 
-class Airpline {       
+class Airline {       
   public:  
            
   private:          
