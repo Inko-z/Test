@@ -61,7 +61,7 @@ void Airline::insert(std::string& Name){
     FlightList* newflight = new FlightList;
     if(newflight == 0){
         std::cout<<"Error allocating space for a new flight"<< std::endl;
-        exit(1);
+        std::exit(1);
     }
     newflight -> Fname = Name;
     newflight -> next = nullptr;
