@@ -24,6 +24,6 @@ class Airline {
     void insert(std::string& Name);
   private:          
     std::string airline_name;
-    FlightList* flight_list;
+    FlightList* flight_listH;
     int flight_num;  
 };

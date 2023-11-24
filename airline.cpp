@@ -5,30 +5,30 @@
 
 Airline::Airline(){
     airline_name = '\0';
-    flight_list = nullptr;
+    flight_listH = nullptr;
     flight_num = 0;
 }
 
 Airline::Airline(std::string name, FlightList* list, int num){
     airline_name = name;
-    flight_list = list; 
+    flight_listH = list; 
     flight_num = num;
 }
 
 Airline::Airline(const Airline& source){
     airline_name = source.airline_name;
     flight_num = source.flight_num;
-    flight_list = nullptr;
-    for(FlightList* p = source.flight_list; p!= nullptr;p = p -> next){
+    flight_listH = nullptr;
+    for(FlightList* p = source.flight_listH; p!= nullptr;p = p -> next){
         insert(p -> Fname);
     }
 }
 
 Airline::~Airline(){
-    while(flight_list != nullptr)
+    while(flight_listH != nullptr)
     {
-        FlightList* p = flight_list;
-        flight_list = flight_list -> next;
+        FlightList* p = flight_listH;
+        flight_listH = flight_listH -> next;
         delete p;
     }
 }
@@ -38,7 +38,7 @@ void Airline::set_name(std::string Name){
 }
 
 void Airline::set_list(FlightList* List){
-    flight_list = List;
+    flight_listH = List;
 }
 
 void Airline::set_num(int n){
@@ -50,7 +50,7 @@ const std::string Airline::get_name()const{
 }
 
 const FlightList* Airline::get_list()const{
-    return flight_list;
+    return flight_listH;
 }
 
 const int Airline::get_num()const{
@@ -66,10 +66,10 @@ void Airline::insert(std::string& Name){
     newflight -> Fname = Name;
     newflight -> next = nullptr;
 
-    FlightList * last = flight_list;
+    FlightList * last = flight_listH;
 
-    if(flight_list == nullptr){
-        flight_list = newflight;
+    if(flight_listH == nullptr){
+        flight_listH = newflight;
         return;
     }
 
