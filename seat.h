@@ -6,7 +6,6 @@ class Seat {
    Seat();
    Seat(int r, int c, int s_s);
    Seat(const Seat& rhs);
-   ~Seat();
    int get_row()const;
    char get_column()const;
    int get_seat_status()const;
