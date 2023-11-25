@@ -23,6 +23,8 @@ class Flight {
     void set_number_of_rows(int r);
     void set_flight_id(std::string f_id);
     void set_FSmap(const SeatMap& fmap);
+    const PassengerList* get_passlist()const;
+    void insertID(int& id);
 
 
   private:          
