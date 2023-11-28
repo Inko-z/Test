@@ -25,5 +25,5 @@ class Airline {
   private:          
     std::string airline_name;
     FlightList* flight_listH;
-    int flight_num;  
+    int number_of_flights;  
 };

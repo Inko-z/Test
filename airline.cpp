@@ -6,21 +6,21 @@
 Airline::Airline(){
     airline_name = '\0';
     flight_listH = nullptr;
-    flight_num = 0;
+    number_of_flights = 0;
 }
 
 Airline::Airline(std::string name, FlightList* list, int num){
     airline_name = name;
     flight_listH = list; 
-    flight_num = num;
+    number_of_flights = num;
 }
 
 Airline::Airline(const Airline& source){
     airline_name = source.airline_name;
-    flight_num = source.flight_num;
+    number_of_flights = source.number_of_flights;
     flight_listH = nullptr;
     for(FlightList* p = source.flight_listH; p!= nullptr;p = p -> next){
-        insert(p -> Fname);
+        insert(p -> flight_id);
     }
 }
 
@@ -42,7 +42,7 @@ void Airline::set_list(FlightList* List){
 }
 
 void Airline::set_num(int n){
-    flight_num = n;
+    number_of_flights = n;
 }
 
 const std::string Airline::get_name()const{
@@ -54,7 +54,7 @@ const FlightList* Airline::get_list()const{
 }
 
 const int Airline::get_num()const{
-    return flight_num;
+    return number_of_flights;
 }
 
 void Airline::insert(std::string& Name){
@@ -63,7 +63,7 @@ void Airline::insert(std::string& Name){
         std::cout<<"Error allocating space for a new flight"<< std::endl;
         std::exit(1);
     }
-    newflight -> Fname = Name;
+    newflight -> flight_id = Name;
     newflight -> next = nullptr;
 
     FlightList * last = flight_listH;
