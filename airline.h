@@ -1,6 +1,6 @@
 #include<vector>
 #include <string>
-
+#include "flight.cpp"
 struct FlightList{
     std::string flight_id;
     FlightList * next;

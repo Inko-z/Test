@@ -1,4 +1,4 @@
-#include"seat.cpp"
+#include"passenger.cpp"
 #include<vector>
 #include <string>
 
