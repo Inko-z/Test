@@ -7,16 +7,25 @@ Flight::Flight(){
     number_of_columns = 0;
     flight_id = "";
     pass_listH = nullptr;
-    FSmap = {};
 }
 //custom ctor
-Flight::Flight(int rows, int columns, const std::string& id, PassengerList* passList, const SeatMap& map){
+Flight::Flight(int rows, int columns, const std::string& id, PassengerList* passList){
     number_of_rows = rows;
     number_of_columns = columns;
     flight_id = id;
     pass_listH = passList;
-    FSmap = map;
+    SeatMap Fmap(number_of_rows, std::vector<Seat>(number_of_columns)); //creating FMAP and setting each seat row and column
+    for(int j = 0; j < number_of_rows; j++){
+    for(int i = 0; i < number_of_columns;i++){
+         Fmap[j][i] = Seat();
+         Fmap[j][i].set_row(i + 1 );
+         Fmap[j][i].set_column('A' + j);
+         }
 }
+}
+
+    
+
 //copy ctor
 Flight::Flight(const Flight& rhs){
     number_of_rows = rhs.number_of_rows;
@@ -62,3 +71,27 @@ while(last -> next != nullptr){
 }
 last -> next = new_id;
 }
+void DisplaySeatMap(int flight_rows, int flight_columns) {
+    // Display column labels
+    std::cout << "    ";
+    for (int col = 1; col <= flight_columns; col++) {
+        std::cout << " " << char('A' + col - 1) << " ";
+    }
+    std::cout << "\n";
+
+    // Display seat map
+    for (int row = 1; row <= flight_rows; row++) {
+        if(row < 10){
+        std::cout << row << "   ";
+        }
+        else
+        std::cout << row << "  ";
+        for (int col = 1; col <= flight_columns; col++) {
+            std::cout << "[ ]"; 
+        }
+        std::cout << "\n";
+    }
+}
+
+//for loops printing map
+      //if statment checking if that row and column have seat number + iterate through it

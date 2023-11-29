@@ -3,17 +3,17 @@
 #include <string>
 
 struct PassengerList{
-    int pass_id;
+    Passenger Pass;  //pass is literal passenger object
     PassengerList * next;
 };
 
-typedef std::vector< std::vector<Seat> > SeatMap;
+typedef std::vector< std::vector<Seat> > SeatMap; //matrix seat objects
 
 class Flight {       
   public:  
-    // .checkseatavailability
+    void checkseatavail();
     Flight();
-    Flight::Flight(int rows, int columns, const std::string &id, PassengerList *passList, const SeatMap &map);
+    Flight(int rows, int columns, const std::string& id, PassengerList* passList);
     Flight(const Flight& rhs);
     int get_number_of_rows()const;
     int get_number_of_columns()const;
@@ -33,5 +33,5 @@ class Flight {
     int number_of_columns;
     PassengerList* pass_listH;
     SeatMap FSmap;
-    
+
 };
