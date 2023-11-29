@@ -3,7 +3,10 @@
 #include <iostream>
 #include <fstream>
 
-#include "airline.cpp"
+#include "airline.h"
+#include "flight.h"
+#include "passenger.h"
+#include "seat.h"
 
 void printfirstmessege();
 void printreturnmessege();
