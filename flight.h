@@ -1,3 +1,5 @@
+#ifndef FLIGHT_H
+#define FLIGHT_H
 #include"passenger.cpp"
 #include<vector>
 #include <string>
@@ -35,3 +37,4 @@ class Flight {
     SeatMap FSmap;
 
 };
+#endif

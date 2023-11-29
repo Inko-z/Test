@@ -50,27 +50,27 @@ void Flight::set_number_of_columns(int c){number_of_columns=c;}
 void Flight::set_flight_id(std::string f_id){flight_id=f_id;}
 void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
 //getter and setter for pass_listh
-const PassengerList* Flight::get_passlist()const{
-    return pass_listH;
-}
-void Flight::insertID(int& id ){
-PassengerList* new_id = new PassengerList;
-if (new_id == 0){
-    std::cout<<"Error allocating space for a new passenger id"<< std::endl;
-    std::exit(1);
-}
-new_id -> pass_id = id;
-new_id -> next = nullptr;
-PassengerList* last = pass_listH;
+// const PassengerList* Flight::get_passlist()const{
+//     return pass_listH;
+// }
+// void Flight::insertID(int& id ){
+// PassengerList* new_id = new PassengerList;
+// if (new_id == 0){
+//     std::cout<<"Error allocating space for a new passenger id"<< std::endl;
+//     std::exit(1);
+// }
+// new_id -> pass_id = id;
+// new_id -> next = nullptr;
+// PassengerList* last = pass_listH;
 
-if(pass_listH == nullptr){
-    pass_listH = new_id;
-}
-while(last -> next != nullptr){
-    last = last -> next;
-}
-last -> next = new_id;
-}
+// if(pass_listH == nullptr){
+//     pass_listH = new_id;
+// }
+// while(last -> next != nullptr){
+//     last = last -> next;
+// }
+// last -> next = new_id;
+// } Getter and setter removed temp
 void DisplaySeatMap(int flight_rows, int flight_columns) {
     // Display column labels
     std::cout << "    ";

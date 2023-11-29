@@ -1,3 +1,5 @@
+#ifndef SEAT_H
+#define SEAT_H
 #include<vector>
 #include <string>
 
@@ -18,3 +20,4 @@ class Seat {
     char column;
     int seat_status; //use for bool logic. 0=unavailable, 1 = available;
 };
+#endif

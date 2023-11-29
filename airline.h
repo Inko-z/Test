@@ -1,3 +1,5 @@
+#ifndef AIRLINE_H
+#define AIRLINE_H
 #include<vector>
 #include <string>
 #include "flight.cpp"
@@ -27,3 +29,4 @@ class Airline {
     FlightList* flight_listH;
     int number_of_flights;  
 };
+#endif
