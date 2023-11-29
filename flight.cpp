@@ -1,6 +1,7 @@
-#include"flight.h"
 #include <iostream>
 #include <string>
+#include"flight.h"
+
 //Default ctor
 Flight::Flight(){
     number_of_rows = 0;

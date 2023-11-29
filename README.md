@@ -1,5 +1,10 @@
 "# ENSF337-Term-Project" 
 
+Compile comman:
+g++ main.cpp airline.cpp flight.cpp passenger.cpp seat.cpp -o main
+
+
+
 REQUIREMENTS:
 
 Classes to have: Airline, Flight, Passenger, Seat.
