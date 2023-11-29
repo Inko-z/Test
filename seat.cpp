@@ -1,4 +1,4 @@
-#include<seat.h>
+#include"seat.h"
 //DEFAULT CTR
 Seat::Seat(){
     row = 0;

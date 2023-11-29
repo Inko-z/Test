@@ -1,4 +1,4 @@
-#include<seat.h>
+#include"seat.cpp"
 #include<vector>
 #include <string>
 
@@ -13,7 +13,7 @@ class Flight {
   public:  
     // .checkseatavailability
     Flight();
-    Flight::Flight(int rows, int columns, const std::__cxx11::string &id, PassengerList *passList, const SeatMap &map);
+    Flight::Flight(int rows, int columns, const std::string &id, PassengerList *passList, const SeatMap &map);
     Flight(const Flight& rhs);
     int get_number_of_rows()const;
     int get_number_of_columns()const;

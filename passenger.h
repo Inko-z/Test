@@ -1,7 +1,6 @@
-#include <seat.h>
-#include<airline.h>
+#include "seat.cpp"
+#include"airline.cpp"
 #include <string>
-#include "passenger.cpp"
 class Passenger {       
   public:  
    Passenger();

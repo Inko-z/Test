@@ -1,5 +1,5 @@
 #include "passenger.h"
-#include<seat.h>
+#include"seat.cpp"
 //DEFAULT CTR
 Passenger::Passenger(){
     Fname= "";
