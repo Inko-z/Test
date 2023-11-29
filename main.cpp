@@ -19,10 +19,9 @@ int main(){
 
     printfirstmessege();
     printreturnmessege();
-    char returnchar;
-    std::cin >> returnchar;
+    char returnchar = std::cin.get();
 
-    if(returnchar == '\r'){
+    if(returnchar == '\n'){
 
     }
 }
