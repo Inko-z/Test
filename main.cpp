@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "airline.cpp"
+#include "god.h"
 
 void printfirstmessege();
 void printreturnmessege();
@@ -19,10 +19,10 @@ int main(){
 
     printfirstmessege();
     printreturnmessege();
-    char returnchar;
-    std::cin >> returnchar;
+    char returnchar = std::cin.get();
+  
 
-    if(returnchar == '\r'){
+    if(returnchar == '\n'){
 
     }
 }

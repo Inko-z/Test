@@ -1,4 +1,4 @@
-#include "passenger.h"
+#include "god.h"
 //DEFAULT CTR
 Passenger::Passenger(){
     Fname= "";

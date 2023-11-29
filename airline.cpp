@@ -1,7 +1,7 @@
 #include<vector>
 #include <string>
 #include <iostream>
-#include "airline.h"
+#include "god.h"
 
 Airline::Airline(){
     airline_name = '\0';

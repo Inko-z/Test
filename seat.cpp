@@ -1,4 +1,5 @@
-#include"seat.h"
+#include"god.h"
+
 //DEFAULT CTR
 Seat::Seat(){
     row = 0;
