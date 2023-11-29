@@ -1,14 +1,9 @@
 #include <string>
 #include <vector>
-#include<iostream>
-#include "airline.h"
+#include <iostream>
+#include <fstream>
+
 #include "airline.cpp"
-#include "flight.h"
-#include "flight.cpp"
-#include "passenger.h"
-#include "passenger.cpp"
-#include "seat.h"
-#include "seat.cpp"
 
 void printfirstmessege();
 void printreturnmessege();
@@ -16,7 +11,20 @@ void printoptions();
 void printwronginput();
 
 int main(){
+    std::ifstream readingstream("flight_info.txt");
+    std::ofstream writingstream("flight_info.txt");
+    
+    //read all data from file and turn it into objects, lists, ect. in the program
+    // airline ptr
 
+    printfirstmessege();
+    printreturnmessege();
+    char returnchar;
+    std::cin >> returnchar;
+
+    if(returnchar == '\r'){
+
+    }
 }
 void printfirstmessege(){
     std::cout << "Version: 1.0\n";
@@ -25,6 +33,7 @@ void printfirstmessege(){
 }
 void printreturnmessege(){
     std::cout <<"<<< Press Return to Continue >>>\n";
+    std::cout <<"(anything else will end the program)\n";
 }
 void printoptions(){
     std::cout << "Please select one of the following functions:\n";
