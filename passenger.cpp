@@ -1,4 +1,4 @@
-#include<passenger.h>
+#include "passenger.h"
 #include<seat.h>
 //DEFAULT CTR
 Passenger::Passenger(){
@@ -10,7 +10,7 @@ Passenger::Passenger(){
 }
 //CUSTOM CTR
 
-Passenger::Passenger(std::string fname, std::string lname, std::string pho, int p_id,Seat * s){
+Passenger::Passenger(std::string& fname, std::string& lname, std::string& pho, int& p_id, Seat * s){
     Fname= fname;
     Lname = lname;
     phone = pho;
@@ -34,16 +34,17 @@ std::string Passenger::get_Lname()const{return Lname;}
 std::string Passenger::get_phone()const{return phone;}
 int Passenger::get_pass_id()const{return pass_id;}
 Seat Passenger::get_seat()const{return *seat;}
-void Passenger::set_Fname(std::string fname){
+
+void Passenger::set_Fname(std::string& fname){
     Fname = fname;
 }
-void Passenger::set_Lname(std::string lname){
+void Passenger::set_Lname(std::string& lname){
         Lname = lname;
 }
-void Passenger::set_phone(std::string pho){
+void Passenger::set_phone(std::string& pho){
         phone = pho;
 }
-void Passenger::set_pass_id(int id){
+void Passenger::set_pass_id(int& id){
     pass_id = id;
 }
 void Passenger::set_seat(Seat * s){
