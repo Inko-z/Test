@@ -1,7 +1,7 @@
 #include <seat.h>
 #include<airline.h>
 #include <string>
-
+#include "passenger.cpp"
 class Passenger {       
   public:  
    Passenger();
