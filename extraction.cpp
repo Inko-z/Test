@@ -90,4 +90,80 @@ Passenger* extract_passenger(string passenger_info_line){
     //put info into passenger 
     Passenger* p = new Passenger;
 
+    string fname, lname, phone, seat, id;
+
+    int i;
+    for(i = 0; passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i)); i++ ){
+        fname.push_back(passenger_info_line.at(i));
+    }
+    fname.push_back(passenger_info_line.at(i));
+    i++;
+    if(passenger_info_line.at(i) != ' '){
+        while(passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i))){
+            fname.push_back(passenger_info_line.at(i));
+            i++;
+        }
+    }
+    else{
+        if(passenger_info_line.at(i) == ' '){
+            fname.pop_back();
+        }
+    }
+    p->set_Fname(fname);
+
+
+    while(passenger_info_line.at(i) == ' '){  // travels to the next non-white-space char
+        i++;
+    }
+    do{
+        lname.push_back(passenger_info_line.at(i));
+        i++;
+    }while(passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i)) );
+    lname.push_back(passenger_info_line.at(i));
+    i++;
+    if(passenger_info_line.at(i) != ' '){
+        while(passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i))){
+            lname.push_back(passenger_info_line.at(i));
+            i++;
+        }
+    }
+    else{
+        if(passenger_info_line.at(i) == ' '){
+            lname.pop_back();
+        }
+    }
+    p->set_Fname(lname);
+
+
+    while(passenger_info_line.at(i) == ' '){  // travels to the next non-white-space char
+        i++;
+    }
+    while(passenger_info_line.at(i) != ' ' && (isdigit(passenger_info_line.at(i)) || passenger_info_line.at(i) == '-') ){
+        phone.push_back(passenger_info_line.at(i));
+        i++;
+    }
+    p->set_phone(phone);
+
+
+    while(passenger_info_line.at(i) == ' '){  // travels to the next non-white-space char
+        i++;
+    }
+    do{
+        seat.push_back(passenger_info_line.at(i));
+        i++;
+    }while(passenger_info_line.at(i) != ' ' && (isdigit(passenger_info_line.at(i)) || isalpha(passenger_info_line.at(i))));
+
+    //set seat here(?)
+
+
+
+    while(passenger_info_line.at(i) == ' '){  // travels to the next non-white-space char
+        i++;
+    }
+    do{
+            id.push_back(passenger_info_line.at(i));
+            i++;
+    }while(i<passenger_info_line.length() &&  isdigit(passenger_info_line.at(i)) );
+    int int_id = stoi(id);
+    p->set_pass_id(int_id);
 }
