@@ -81,7 +81,7 @@ Flight* extract_flight(string flight_info_line){
     }while(i<flight_info_line.length() &&  isdigit(flight_info_line.at(i)) );
 
     f->set_number_of_columns(stoi(cols));
-
+    f->set_FSmap((*f).get_number_of_rows(), (*f).get_number_of_columns()); //resize seatmap to with current value
     return f;
 }
 

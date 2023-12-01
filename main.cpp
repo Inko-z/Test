@@ -17,8 +17,8 @@ int main(){
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
-    if(readingstream.is_open()){
-        std::cout << "file error\n";
+    if(!readingstream.is_open()){
+        std::cout << "****************FILE ERROR****************\n";
     }
     std::string line = extract_the_line(readingstream); // reads first line
 
@@ -61,7 +61,7 @@ int main(){
 
             std::cin >> selection;
             if(selection == '1'){
-                DisplaySeatMap(f); /////////////////////////testing////////////////////////////////////////
+                DisplaySeatMap(a1.get_list()->flight);
                 pressreturntocontinue();
                 printoptions();
 
