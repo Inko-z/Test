@@ -73,37 +73,37 @@ int main(){
 
             }else if (selection == 5)
             {
-            std::cout<<"Do you want to save the data in the flight_info.txt? Please answer <Y or N>"<<std::endl;
-            char ans;
-            std::cin >> ans;
-            if(ans == 'Y' || ans == 'y'){
-            std::ofstream writingstream("flight_info.txt"); //opens file for writing
+                std::cout<<"Do you want to save the data in the flight_info.txt? Please answer <Y or N>"<<std::endl;
+                char ans;
+                std::cin >> ans;
+                if(ans == 'Y' || ans == 'y'){
+                    std::ofstream writingstream("flight_info.txt"); //opens file for writing
 
-            FlightList* current_flight = a1.get_list();
-            writingstream << a1.get_name() << current_flight->flight.get_flight_id() <<setw(9) << current_flight->flight.get_number_of_rows() << setw(6)
-            <<current_flight->flight.get_number_of_columns()<<std::endl; // writes in the airline name, rows, cols
+                    FlightList* current_flight = a1.get_list();
+                    writingstream << a1.get_name() << current_flight->flight.get_flight_id() <<setw(9) << current_flight->flight.get_number_of_rows() << setw(6)
+                    <<current_flight->flight.get_number_of_columns()<<std::endl; // writes in the airline name, rows, cols
 
-            PassengerList* current_pass = f1->get_pass_listH();
+                    PassengerList* current_pass = f1->get_pass_listH();
 
-            if(current_pass == nullptr){
-                std::cout<<"No passengers to save in file."<<std::endl;
-            }
-            else{
-                while(current_pass != nullptr){  //continues to write in passengers until reaches end of linked list
-                    std::string seat = std::to_string(current_pass->Pass.get_seat().get_row()) + current_pass->Pass.get_seat().get_column();
+                    if(current_pass == nullptr){
+                        std::cout<<"No passengers to save in file."<<std::endl;
+                    }
+                    else{
+                        while(current_pass != nullptr){  //continues to write in passengers until reaches end of linked list
+                            std::string seat = std::to_string(current_pass->Pass.get_seat().get_row()) + current_pass->Pass.get_seat().get_column();
 
-                    writingstream << current_pass->Pass.get_Fname()<<setw(20)<<current_pass->Pass.get_Lname()<<setw(20)
-                    << current_pass->Pass.get_phone()<<setw(20)<<seat<<setw(4)<<current_pass->Pass.get_pass_id()<<std::endl;
-                    current_pass = current_pass->next;
+                            writingstream << current_pass->Pass.get_Fname()<<setw(20)<<current_pass->Pass.get_Lname()<<setw(20)
+                            << current_pass->Pass.get_phone()<<setw(20)<<seat<<setw(4)<<current_pass->Pass.get_pass_id()<<std::endl;
+                            current_pass = current_pass->next;
+                        }
+                        std::cout<<"All the data in the passenger list was saved into flight_info.txt."<<std::endl;
+                    }
                 }
-                std::cout<<"All the data in the passenger list was saved into flight_info.txt."<<std::endl;
-            }
-            }
-            else{
-                std::cout<<"New Data was not saved."<<std::endl;
-            }
-            pressreturntocontinue();
-            printoptions();
+                else{
+                    std::cout<<"New Data was not saved."<<std::endl;
+                }
+                pressreturntocontinue();
+                printoptions();
             }else if (selection == 6)
             {
                 runprogram = 0;
