@@ -12,7 +12,7 @@
 
 int main(){
     
-    std::ifstream readingstream("C:\\Users\\nieto\\OneDrive\\Desktop\\final 337\\ENSF337-Term-Project\\flight_info.txt");
+    std::ifstream readingstream("flight_info.txt");
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
@@ -76,10 +76,12 @@ int main(){
                 cout<<"Enter PassengerID of Passenger you wish to remove"<<endl;
                 cin>>removeinput;
                 if (stoi(removeinput) == 0){
-                exit(1);}
-                else{
+                    exit(1);
+
+                }else{
                 int input = stoi(removeinput);
                 a1.get_list()->flight.RemovePassengerById(input);
+                (a1.get_list()->flight).update_FSmap(); // update map
                 pressreturntocontinue();
                 printoptions();
                 }
