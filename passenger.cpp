@@ -33,7 +33,7 @@ std::string Passenger::get_Fname()const{return Fname;}
 std::string Passenger::get_Lname()const{return Lname;}
 std::string Passenger::get_phone()const{return phone;}
 int Passenger::get_pass_id()const{return pass_id;}
-Seat Passenger::get_seat()const{return *seat;}
+Seat* Passenger::get_seat()const{return seat;}
 
 void Passenger::set_Fname(std::string& fname){
     Fname = fname;

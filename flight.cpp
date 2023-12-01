@@ -67,18 +67,29 @@ void Flight::set_pass_listH(PassengerList* h){
 PassengerList* Flight::get_pass_listH()const{
     return pass_listH;
 }
-
+void Flight::update_FSmap(){
+    int r, c;
+    
+    for (PassengerList* p = pass_listH; p != nullptr; p = p->next) {  //run through list of passengers
+        r = (p->Pass).get_seat()->get_row();
+        c = int((p->Pass).get_seat()->get_column() - 'A');//convert char into int
+        this->set_FSmap_seat(r, c, 0);  //setting seat to unavailable
+    }
+}
+void Flight::set_FSmap_seat(int row, int column, int value){
+    FSmap.at(row).at(column) = value;
+}
 void DisplaySeatMap(Flight f) {
     // Display column labels
     int r = f.get_number_of_rows();
     int c = f.get_number_of_columns();
 
     //displaying colum letters
-    std::cout << "    ";
-    for(int i = 0; i<=c; i++){
+    std::cout << "       ";
+    for(int i = 0; i < c; i++){
 
         std::cout << char('A' + i);
-        std::cout << "   ";
+        std::cout << "  ";
         
     }
     std::cout << "\n";

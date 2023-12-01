@@ -93,7 +93,7 @@ Passenger* extract_passenger(string passenger_info_line){
 
     string fname, lname, phone, seatrow, seatcol, id;
 
-    size_t i;
+    size_t i = 0;
     for(i = 0; passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i)); i++ ){
         fname.push_back(passenger_info_line.at(i));
     }
