@@ -145,3 +145,26 @@ void Flight::DisplayPassInfo() {
         }
     }
 }
+bool Flight::RemovePassengerById(int PassengerId) {
+    PassengerList* current = pass_listH;
+    PassengerList* previous = nullptr;
+
+    while (current != nullptr) {
+        if (current->Pass.get_pass_id() == PassengerId) {
+            if (previous == nullptr) {
+                pass_listH = current->next;
+            } else {
+                previous->next = current->next;
+            }
+            delete &(current->Pass);
+            delete current;
+
+            std::cout << "Passenger with ID " << PassengerId << " removed successfully." << std::endl;
+            return true;
+        }
+        previous = current;
+        current = current->next;
+    }
+    std::cout << "Passenger with ID " << PassengerId << " not found." << std::endl;
+    return false;
+}
