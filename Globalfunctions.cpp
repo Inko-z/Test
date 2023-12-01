@@ -7,5 +7,34 @@
 #include "flight.h"
 #include "passenger.h"
 #include "seat.h"
-#include "main.cpp"
+#include "Globalfunctions.h"
 
+
+int pressreturntocontinue(){
+    std::cout <<"<<< Press Return to Continue >>>\n";
+    char returnchar;
+    std::cin >> returnchar;
+    return 1;
+}
+void printfirstmessege(){
+    std::cout << "Version: 1.0\n";
+    std::cout << "Term Project - Flight Management Programm in C++\n";
+    std::cout << "Produced by: Rodolfo Gil-Pereira, Anastasia Zaharia, Sebastian Nieto\n\n";
+}
+void printreturnmessege(){
+    std::cout <<"<<< Press Return to Continue >>>\n";
+    std::cout <<"(anything else will end the program)\n";
+}
+void printoptions(){
+    std::cout << "Please select one of the following functions:\n";
+    std::cout << "1.  Display Flight Seat Map.\n";
+    std::cout << "2.  Display Passengers Information.\n";
+    std::cout << "3.  Add a New Passenger.\n";
+    std::cout << "4.  Remove an Existing Passenger.\n";
+    std::cout << "5.  Save data.\n";
+    std::cout << "6.  Quit.\n\n";
+    std::cout << "Enter your choice: (1, 2, 3, 4, 5 or 6):\n";
+}
+void printwronginput(){
+    std::cout << "Invalid input, please try again: \n";
+}
