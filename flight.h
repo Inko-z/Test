@@ -25,6 +25,10 @@ class Flight {
     //void set_FSmap(const SeatMap& fmap);
     const PassengerList* get_passlist()const;
     
+    void set_FSmap(const SeatMap& fmap);
+    void set_pass_listH(PassengerList* h);
+    PassengerList* get_pass_listH()const;
+    void insertID(int& id);
 
 
   private:          
