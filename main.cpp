@@ -12,7 +12,7 @@
 
 int main(){
     
-    std::ifstream readingstream("C:\\Users\\nieto\\OneDrive\\Desktop\\final 337\\ENSF337-Term-Project\\flight_info.txt");
+    std::ifstream readingstream("flight_info.txt");
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
@@ -66,8 +66,8 @@ int main(){
             }
             else if (selection == '3')
             {
-                (a1.get_list()->flight).addpassenger();
-                (a1.get_list()->flight).update_FSmap();
+                (a1.get_list()->flight).addpassenger(); //Add new passenger
+                (a1.get_list()->flight).update_FSmap(); // update map
                 pressreturntocontinue();
                 printoptions();            
             }
