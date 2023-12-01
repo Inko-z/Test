@@ -65,8 +65,8 @@ int main(){
             }
             else if (selection == '3')
             {
-                (a1.get_list()->flight).addpassenger();
-                (a1.get_list()->flight).update_FSmap();
+                (a1.get_list()->flight).addpassenger(); //Add new passenger
+                (a1.get_list()->flight).update_FSmap(); // update map
                 pressreturntocontinue();
                 printoptions();            
             }
