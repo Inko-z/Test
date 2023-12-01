@@ -147,7 +147,7 @@ void Flight::addpassenger(){
     std::cin >> r;
     std::cout << "\nselect column: ";
     std::cin >> c;
-    while(!this->get_seat_status(r, int(c - 'A'))){
+    while(!this->get_seat_status(r, (int)(c - 'A'))){
         std::cout << "\nSelect an available seat: ";
         std::cout << "\nselect row: ";
         std::cin >> r;
@@ -175,9 +175,9 @@ void Flight::insert_passener(std::string fname, std::string lname, std::string p
         return;
     }
 
-    PassengerList* before;
-    for (before = pass_listH; p->next != nullptr; before = before->next) {  }// finiding last PassengerList struct
-    before->next = p;
+    PassengerList* after = pass_listH;
+    pass_listH = p;
+    p->next = after;
 }
 void Flight::DisplayPassInfo() {
     PassengerList* currentPassenger = pass_listH;
