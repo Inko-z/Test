@@ -77,7 +77,7 @@ void Flight::update_FSmap(){
     }
 }
 void Flight::set_FSmap_seat(int row, int column, int value){
-    FSmap.at(row).at(column) = value;
+    FSmap.at(row - 1).at(column) = value;
 }
 void DisplaySeatMap(Flight f) {
     // Display column labels
