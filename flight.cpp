@@ -78,16 +78,15 @@ void Flight::set_flight_id(std::string f_id){flight_id=f_id;}
 // last -> next = new_id;
 // } Getter and setter removed temp
 
+void Flight::set_pass_listH(PassengerList* h){
+    pass_listH = h;
+}
 
+PassengerList* Flight::get_pass_listH()const{
+    return pass_listH;
+}
 
-
-
-
-
-
-
-
-void DisplaySeatMap(Flight f) {
+void DisplaySeatMap(int flight_rows, int flight_columns) {
     // Display column labels
     int r = f.get_number_of_rows();
     int c = f.get_number_of_columns();
