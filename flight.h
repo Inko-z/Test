@@ -11,8 +11,8 @@ struct PassengerList{
 typedef std::vector< std::vector<int> > SeatMap;
 class Flight {       
   public:  
-    void checkseatavail();
     Flight();
+    ~Flight(); 
     Flight(int rows, int columns, const std::string& id, PassengerList* passList);
     Flight(const Flight& rhs);
     int get_number_of_rows()const;

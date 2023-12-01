@@ -76,12 +76,11 @@ int main(){
                 printoptions();            
             }
             else if (selection == '4')
-            {   char removeinput;
-                cout<<"Enter PassengerID of Passenger you wish to remove"<<endl;
+            {   int removeinput;
+                cout<<"Enter PassengerID of Passenger you wish to remove"<<endl;            
                 cin>>removeinput;
-                if(isdigit(removeinput))
-                    a1.get_list()->flight.RemovePassengerById(removeinput);
-                else
+
+                a1.get_list()->flight.RemovePassengerById(removeinput);
                 cout<< "\n\nYou are back in the main menu since you provided an invalid input\n\n";
                 pressreturntocontinue();
                 printoptions();

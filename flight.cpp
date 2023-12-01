@@ -42,7 +42,16 @@ Flight::Flight(const Flight& rhs){
         FSmap.push_back(row);
     }
 }  
-
+//Destructor
+Flight::~Flight() {
+    PassengerList* currentPassenger = pass_listH;
+    while (currentPassenger != nullptr) {
+        PassengerList* nextPassenger = currentPassenger->next;
+        delete &(currentPassenger->Pass);
+        delete currentPassenger;
+        currentPassenger = nextPassenger;
+    }
+}
 
 //implementation
 
