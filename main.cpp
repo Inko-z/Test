@@ -7,6 +7,7 @@
 #include "flight.h"
 #include "passenger.h"
 #include "seat.h"
+#include "extraction.cpp"
 
 void printfirstmessege();
 void printreturnmessege();

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-string extract_the_line(ifstream stream){
+string extract_the_line(ifstream& stream){
     //returns a string of the line the stream pointer is pointing to
     //then makes the file ptr go to next line
 
@@ -36,6 +36,7 @@ Airline extract_airline(string flight_info_line){
         i++;
     }
     a.set_name(a_name);
+    return a;
 }
 
 Flight* extract_flight(string flight_info_line){
@@ -52,7 +53,7 @@ Flight* extract_flight(string flight_info_line){
     string rows;
     string cols;
 
-    int i;
+    size_t i;
     for (i = 0; flight_info_line.at(i) != ' ' ; i++){ //appends number chars to flight_ID until it reaches a space
         if( isdigit(flight_info_line.at(i)) )
         flight_ID.push_back(flight_info_line.at(i));
@@ -89,10 +90,11 @@ Passenger* extract_passenger(string passenger_info_line){
     //take string extracted form extract_the_line() and extracts passenger info and creates passenger object on the heap
     //put info into passenger 
     Passenger* p = new Passenger;
+    Seat* seatpointer = new Seat;
 
     string fname, lname, phone, seatrow, seatcol, id;
 
-    int i;
+    size_t i;
     for(i = 0; passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i)); i++ ){
         fname.push_back(passenger_info_line.at(i));
     }
@@ -157,7 +159,10 @@ Passenger* extract_passenger(string passenger_info_line){
         i++;
     }while(passenger_info_line.at(i) != ' ' && (isalpha(passenger_info_line.at(i)) ));
     //set seat here
-
+    p->set_seat(seatpointer);
+    seatpointer -> set_row(stoi(seatrow));
+    char col = seatcol.at(0);
+    seatpointer -> set_column(col);
 
 
     while(passenger_info_line.at(i) == ' '){  // travels to the next non-white-space char
@@ -169,4 +174,5 @@ Passenger* extract_passenger(string passenger_info_line){
     }while(i<passenger_info_line.length() &&  isdigit(passenger_info_line.at(i)) );
     int int_id = stoi(id);
     p->set_pass_id(int_id);
+    return p;
 }

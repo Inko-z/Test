@@ -53,7 +53,7 @@ const FlightList* Airline::get_list()const{
     return flight_listH;
 }
 
-const int Airline::get_num()const{
+int Airline::get_num()const{
     return number_of_flights;
 }
 
