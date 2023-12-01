@@ -20,7 +20,24 @@ int main(){
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
-    std::string line = extract_the_line(readingstream);
+    std::string line = extract_the_line(readingstream); // reads first line
+
+    Airline a1 = extract_airline(line); //makes airline object based on first line
+    Flight* f1 = extract_flight(line); //makes flight object on the heap based on first line
+
+    FlightList* fl1 = new FlightList; //first flightlist struct 
+    fl1->next = nullptr;
+    fl1->flight_id = f1->get_flight_id();
+    a1.set_list(fl1); // sets first flightlist struct as head of list
+    
+    while(!readingstream.eof()){
+        std::string line = extract_the_line(readingstream);
+        Passenger* new_pass = extract_passenger(line);
+        PassengerList* p1 = new PassengerList; // first passengerlist struct
+        
+        p1->next = f1->get_pass_listH();
+        f1->set_pass_listH(p1);
+    }
     
 
     printfirstmessege();
