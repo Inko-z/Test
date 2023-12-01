@@ -179,3 +179,51 @@ void Flight::insert_passener(std::string fname, std::string lname, std::string p
     for (before = pass_listH; p->next != nullptr; before = before->next) {  }// finiding last PassengerList struct
     before->next = p;
 }
+void Flight::DisplayPassInfo() {
+    PassengerList* currentPassenger = pass_listH;
+
+    if (currentPassenger == nullptr) {
+        std::cout << "No passengers on this flight." << std::endl;
+        return;
+    }
+    cout<<"\n\n\n+++++++++++++++++++++++++++++++++";
+    std::cout << "\nPassenger Information for Flight " << get_flight_id() << ":" << std::endl;
+
+    while (currentPassenger != nullptr) {
+        Passenger* passenger = &(currentPassenger->Pass);
+
+        std::cout << "Passenger ID: " << passenger->get_pass_id() << std::endl;
+        std::cout << "Name: " << passenger->get_Fname() << " " << passenger->get_Lname() << std::endl;
+        std::cout << "Phone: " << passenger->get_phone() << std::endl;
+        std::cout << "Seat: Row " << passenger->get_seat()->get_row() << " Column " << passenger->get_seat()->get_column() << std::endl;
+        cout<<"++++++++++++++++++++++++++++++++++\n\n\n";
+        currentPassenger = currentPassenger->next;
+    
+        if (currentPassenger != nullptr) {
+            std::cout << "---------------------" << std::endl;
+        }
+    }
+}
+bool Flight::RemovePassengerById(int PassengerId) {
+    PassengerList* current = pass_listH;
+    PassengerList* previous = nullptr;
+
+    while (current != nullptr) {
+        if (current->Pass.get_pass_id() == PassengerId) {
+            if (previous == nullptr) {
+                pass_listH = current->next;
+            } else {
+                previous->next = current->next;
+            }
+            delete &(current->Pass);
+            delete current;
+
+            std::cout << "Passenger with ID " << PassengerId << " removed successfully." << std::endl;
+            return true;
+        }
+        previous = current;
+        current = current->next;
+    }
+    std::cout << "Passenger with ID " << PassengerId << " not found." << std::endl;
+    return false;
+}

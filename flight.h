@@ -30,6 +30,8 @@ class Flight {
     void insert_passener(std::string fname, std::string lname, std::string phone,int id, Seat* s);
     void update_FSmap();
     void addpassenger();
+    void DisplayPassInfo();
+    bool RemovePassengerById(int PassengerId);
 
 
   private:          
