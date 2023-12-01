@@ -8,6 +8,7 @@
 #include "passenger.h"
 #include "seat.h"
 #include "extraction.cpp"
+#include "Globalfunctions.h"
 
 void printfirstmessege();
 void printreturnmessege();
@@ -24,66 +25,51 @@ int main(){
     
 
     printfirstmessege();
-    printreturnmessege();
-    char returnchar = std::cin.get();
+
     int runprogram = 1; //bool logic to eventually exit the program
-    int selection;
+    char selection;
 
-    if(returnchar == '\n'){
+    if(pressreturntocontinue()){
+        printoptions();
+
         while(runprogram){ ///MAIN PROGRAM LOOP///
-    
-            printoptions();
+        
             std::cin >> selection;
+            if(selection == '1'){
+                std::string s = "booger";
+                Flight f(24, 6, s, nullptr);
+                DisplaySeatMap(f);
+                pressreturntocontinue();
+                printoptions();
 
-            if(selection == 1){
-
-            }else if (selection == 2)
+            }else if (selection == '2')
             {
-
+                pressreturntocontinue();
+                printoptions();
             }
-            else if (selection == 3)
+            else if (selection == '3')
             {
-
+                pressreturntocontinue();
+                printoptions();            
             }
-            else if (selection == 4)
+            else if (selection == '4')
             {
-
-            }else if (selection == 5)
+                pressreturntocontinue();
+                printoptions();
+            }else if (selection == '5')
             {
+                pressreturntocontinue();
+                printoptions();               
 
-            }else if (selection == 6)
+            }else if (selection == '6')
             {
                 runprogram = 0;
             }
             else
             {
-                
+                std::cout << "Worng input\n";
+
             }
-
-
-        }
-    }
-    
-    while(1){
-        std::cin >> returnchar;
-        if(returnchar == '1'){
-
-        }
-        if(returnchar == '2'){
-            
-        }
-        if(returnchar == '3'){
-            
-        }
-        if(returnchar == '4'){
-            
-        }
-        if(returnchar == '5'){
-            
-        }
-        if(returnchar == '6'){
-            std::cout<<"\nProgram Terminated"<<std::endl;
-            break;
         }
     }
 }

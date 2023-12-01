@@ -7,5 +7,12 @@
 #include "flight.h"
 #include "passenger.h"
 #include "seat.h"
-#include "main.cpp"
+#include "Globalfunctions.h"
 
+
+int pressreturntocontinue(){
+    std::cout <<"<<< Press Return to Continue >>>\n";
+    char returnchar;
+    std::cin >> returnchar;
+    return 1;
+}

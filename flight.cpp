@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "Globalfunctions.cpp"
 #include"flight.h"
 
 //Default ctor
@@ -45,7 +46,9 @@ Flight::Flight(const Flight& rhs){
 int Flight::get_number_of_rows()const{return number_of_rows;}
 int Flight::get_number_of_columns()const{return number_of_columns;}
 std::string Flight::get_flight_id()const{return flight_id;}
-SeatMap Flight::get_FSmap() const {return FSmap;}
+SeatMap* Flight::get_FSmap(){
+    SeatMap* s = &FSmap;
+    return s;}
 void Flight::set_number_of_rows(int r){number_of_rows=r;}
 void Flight::set_number_of_columns(int c){number_of_columns=c;}
 void Flight::set_flight_id(std::string f_id){flight_id=f_id;}
@@ -72,27 +75,35 @@ void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
 // }
 // last -> next = new_id;
 // } Getter and setter removed temp
-void DisplaySeatMap(int flight_rows, int flight_columns) {
+
+void DisplaySeatMap(Flight& f) {
     // Display column labels
-    std::cout << "    ";
-    for (int col = 1; col <= flight_columns; col++) {
-        std::cout << " " << char('A' + col - 1) << " ";
+    int r = f.get_number_of_rows();
+    int c = f.get_number_of_columns();
+
+    //displaying colum letters
+    for(int i = 0; i<=c; i++){
+
+        std::cout << "  ";
+        std::cout << char('A' + i);
+        
     }
     std::cout << "\n";
-
-    // Display seat map
-    for (int row = 1; row <= flight_rows; row++) {
-        if(row < 10){
-        std::cout << row << "   ";
+    SeatMap *sm = f.get_FSmap();
+    Seat * s = nullptr;
+    for(int i = 0; i < r; i++){
+        //print row num
+        std::cout << char(i+1) << " ";
+        //print seats
+        for(int j = 0; j < c; j++){
+            
+            s = &(*sm)[i][j];
+        if((*s).get_seat_status()){ //if seat is available
+            std::cout << "[ ]";
+        }else{                      //if seat is not available
+            std::cout << "[X]";
         }
-        else
-        std::cout << row << "  ";
-        for (int col = 1; col <= flight_columns; col++) {
-            std::cout << "[ ]"; 
-        }
-        std::cout << "\n";
+        }  
+        std::cout <<'\n'; //starts the next line
     }
 }
-
-//for loops printing map
-      //if statment checking if that row and column have seat number + iterate through it

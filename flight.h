@@ -20,13 +20,13 @@ class Flight {
     int get_number_of_rows()const;
     int get_number_of_columns()const;
     std::string get_flight_id()const;
-    SeatMap get_FSmap()const;
+    SeatMap* get_FSmap();
     void set_number_of_columns(int c);
     void set_number_of_rows(int r);
     void set_flight_id(std::string f_id);
     void set_FSmap(const SeatMap& fmap);
     const PassengerList* get_passlist()const;
-    void insertID(int& id);
+    
 
 
   private:          

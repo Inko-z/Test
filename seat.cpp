@@ -4,7 +4,7 @@
 Seat::Seat(){
     row = 0;
     column = '\0';
-    seat_status = 0;
+    seat_status = 1; //available by sefault
 }
 //CUSTOM CTR
 Seat::Seat(int r, int c, int s_s){
