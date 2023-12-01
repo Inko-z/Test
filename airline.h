@@ -4,7 +4,7 @@
 #include <string>
 #include "flight.cpp"
 struct FlightList{
-    std::string flight_id;
+    Flight flight;
     FlightList * next;
 };
 
@@ -23,7 +23,8 @@ class Airline {
     const FlightList* get_list()const;
     const int get_num()const;
 
-    void insert(std::string& Name);
+    //void insert(std::string& Name);
+    void insert(Flight* flight);
   private:          
     std::string airline_name;
     FlightList* flight_listH;
