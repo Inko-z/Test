@@ -12,7 +12,7 @@
 
 int main(){
     
-    std::ifstream readingstream("flight_info.txt");
+    std::ifstream readingstream("C:\\Users\\nieto\\OneDrive\\Desktop\\final 337\\ENSF337-Term-Project\\flight_info.txt");
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
@@ -53,6 +53,7 @@ int main(){
         while(runprogram){ 
             std::cin >> selection;
             if(selection == '1'){
+                a1.get_list()->flight.update_FSmap();
                 DisplaySeatMap(a1.get_list()->flight); 
                 pressreturntocontinue();
                 printoptions();
@@ -65,21 +66,21 @@ int main(){
             }
             else if (selection == '3')
             {
-                (a1.get_list()->flight).addpassenger();
-                (a1.get_list()->flight).update_FSmap();
+                (a1.get_list()->flight).addpassenger(); //Add new passenger
+                (a1.get_list()->flight).update_FSmap(); // update map
                 pressreturntocontinue();
                 printoptions();            
             }
             else if (selection == '4')
-            {   char removeinput;
+            {   int removeinput;
                 cout<<"Enter PassengerID of Passenger you wish to remove"<<endl;
                 cin>>removeinput;
-                if(isdigit(removeinput))
-                    a1.get_list()->flight.RemovePassengerById(removeinput);
-                else
-                cout<< "\n\nYou are back in the main menu since you provided an invalid input\n\n";
+                
+            
+                a1.get_list()->flight.RemovePassengerById(removeinput);
                 pressreturntocontinue();
                 printoptions();
+                
             }else if (selection == '5')
             {
                 pressreturntocontinue();

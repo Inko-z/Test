@@ -69,15 +69,19 @@ PassengerList* Flight::get_pass_listH()const{
 }
 void Flight::update_FSmap(){
     int r, c;
-    
+    for (size_t i = 0; i < FSmap.size(); ++i) {
+        for (size_t j = 0; j < FSmap[i].size(); ++j) {
+            FSmap[i][j] = 1;
+        }
+    }
     for (PassengerList* p = pass_listH; p != nullptr; p = p->next) {  //run through list of passengers
         r = (p->Pass).get_seat()->get_row();
         c = int((p->Pass).get_seat()->get_column() - 'A');//convert char into int
-        this->set_FSmap_seat(r, c, 0);  //setting seat to unavailable
+        this->set_FSmap_seat(r-1, c, 0);  //setting seat to unavailable
     }
 }
 void Flight::set_FSmap_seat(int row, int column, int value){
-    FSmap.at(row - 1).at(column) = value;
+    FSmap.at(row).at(column) = value;
 }
 void DisplaySeatMap(Flight f) {
     // Display column labels
@@ -123,7 +127,6 @@ void DisplaySeatMap(Flight f) {
 void Flight::addpassenger(){
     std::string fname, lname, phone;
     int id = 0;
-    Seat* s;
     PassengerList* p = nullptr;
 
     std::cout<<"\nEnter First Name: ";
@@ -147,7 +150,7 @@ void Flight::addpassenger(){
     std::cin >> r;
     std::cout << "\nselect column: ";
     std::cin >> c;
-    while(!this->get_seat_status(r, int(c - 'A'))){
+    while(!get_seat_status(r-1, int(c - 'A'))){
         std::cout << "\nSelect an available seat: ";
         std::cout << "\nselect row: ";
         std::cin >> r;
@@ -175,9 +178,9 @@ void Flight::insert_passener(std::string fname, std::string lname, std::string p
         return;
     }
 
-    PassengerList* before;
-    for (before = pass_listH; p->next != nullptr; before = before->next) {  }// finiding last PassengerList struct
-    before->next = p;
+    PassengerList* after = pass_listH;
+    pass_listH = p;
+    p->next = after;
 }
 void Flight::DisplayPassInfo() {
     PassengerList* currentPassenger = pass_listH;
@@ -205,17 +208,15 @@ void Flight::DisplayPassInfo() {
     }
 }
 bool Flight::RemovePassengerById(int PassengerId) {
-    PassengerList* current = pass_listH;
+    PassengerList* current = get_pass_listH();
     PassengerList* previous = nullptr;
-
-    while (current != nullptr) {
+    while (current != nullptr){
         if (current->Pass.get_pass_id() == PassengerId) {
             if (previous == nullptr) {
                 pass_listH = current->next;
             } else {
                 previous->next = current->next;
             }
-            delete &(current->Pass);
             delete current;
 
             std::cout << "Passenger with ID " << PassengerId << " removed successfully." << std::endl;
