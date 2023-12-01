@@ -4,7 +4,6 @@
 #include <fstream>
 
 #include "airline.cpp"
-#include "airline.cpp"
 #include "flight.h"
 #include "passenger.h"
 #include "seat.h"
