@@ -54,30 +54,12 @@ int Flight::get_seat_status(int row, int col){
 void Flight::set_number_of_rows(int r){number_of_rows=r;}
 void Flight::set_number_of_columns(int c){number_of_columns=c;}
 void Flight::set_flight_id(std::string f_id){flight_id=f_id;}
-//void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
-//getter and setter for pass_listh
-// const PassengerList* Flight::get_passlist()const{
-//     return pass_listH;
-// }
-// void Flight::insertID(int& id ){
-// PassengerList* new_id = new PassengerList;
-// if (new_id == 0){
-//     std::cout<<"Error allocating space for a new passenger id"<< std::endl;
-//     std::exit(1);
-// }
-// new_id -> pass_id = id;
-// new_id -> next = nullptr;
-// PassengerList* last = pass_listH;
-
-// if(pass_listH == nullptr){
-//     pass_listH = new_id;
-// }
-// while(last -> next != nullptr){
-//     last = last -> next;
-// }
-// last -> next = new_id;
-// } Getter and setter removed temp
-
+void Flight::set_FSmap(int rows, int columns){
+    FSmap.resize(rows);
+    for(int i = 0; i < rows;i++){
+        FSmap.at(i).resize(columns, 1);
+    }
+}
 void Flight::set_pass_listH(PassengerList* h){
     pass_listH = h;
 }
@@ -85,18 +67,29 @@ void Flight::set_pass_listH(PassengerList* h){
 PassengerList* Flight::get_pass_listH()const{
     return pass_listH;
 }
-
+void Flight::update_FSmap(){
+    int r, c;
+    
+    for (PassengerList* p = pass_listH; p != nullptr; p = p->next) {  //run through list of passengers
+        r = (p->Pass).get_seat()->get_row();
+        c = int((p->Pass).get_seat()->get_column() - 'A');//convert char into int
+        this->set_FSmap_seat(r, c, 0);  //setting seat to unavailable
+    }
+}
+void Flight::set_FSmap_seat(int row, int column, int value){
+    FSmap.at(row).at(column) = value;
+}
 void DisplaySeatMap(Flight f) {
     // Display column labels
     int r = f.get_number_of_rows();
     int c = f.get_number_of_columns();
 
     //displaying colum letters
-    std::cout << "    ";
-    for(int i = 0; i<=c; i++){
+    std::cout << "       ";
+    for(int i = 0; i < c; i++){
 
         std::cout << char('A' + i);
-        std::cout << "   ";
+        std::cout << "  ";
         
     }
     std::cout << "\n";

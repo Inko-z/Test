@@ -81,7 +81,7 @@ Flight* extract_flight(string flight_info_line){
     }while(i<flight_info_line.length() &&  isdigit(flight_info_line.at(i)) );
 
     f->set_number_of_columns(stoi(cols));
-
+    f->set_FSmap((*f).get_number_of_rows(), (*f).get_number_of_columns()); //resize seatmap to with current value
     return f;
 }
 
@@ -93,7 +93,7 @@ Passenger* extract_passenger(string passenger_info_line){
 
     string fname, lname, phone, seatrow, seatcol, id;
 
-    size_t i;
+    size_t i = 0;
     for(i = 0; passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i)); i++ ){
         fname.push_back(passenger_info_line.at(i));
     }
