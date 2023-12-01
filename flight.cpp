@@ -93,16 +93,28 @@ void DisplaySeatMap(Flight f) {
     int c = f.get_number_of_columns();
 
     //displaying colum letters
+    std::cout << "    ";
     for(int i = 0; i<=c; i++){
 
-        std::cout << "  ";
         std::cout << char('A' + i);
+        std::cout << "   ";
         
     }
     std::cout << "\n";
     for(int i = 0; i < r; i++){
         //print row num
-        std::cout << i+1 << " ";
+        std::cout << i+1;
+        if(i+1 <10){
+            std::cout << "     ";
+        }else if (i+1 > 9 && i+1<100)
+        {
+            std::cout << "    ";
+        }else if (i+1 > 99 && i+1<1000)
+        {
+            std::cout << "   ";
+        }
+        
+        
         //print seats
         for(int j = 0; j < c; j++){
             if(f.get_seat_status(i,j)){ //if seat is available

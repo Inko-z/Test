@@ -24,22 +24,23 @@ int main(){
     
 
     printfirstmessege();
-
     int runprogram = 1; //bool logic to eventually exit the program
     char selection;
+
+    ////////////////////////////////////THIS IS A TESTING THING/////////////////////////////////
     std::string s = "booger";
     Flight f(24, 6, s, nullptr);
-
+    ////////////////////////////////////////////////////////////////////////////////////////////
     if(pressreturntocontinue()){
         printoptions();
-
-        while(runprogram){ ///MAIN PROGRAM LOOP///
+///////////////////////////////////////////MAIN PROGRAM LOOP///////////////////////////////////////////
+        while(runprogram){ 
 
 
 
             std::cin >> selection;
             if(selection == '1'){
-                DisplaySeatMap(f);
+                DisplaySeatMap(f); /////////////////////////testing////////////////////////////////////////
                 pressreturntocontinue();
                 printoptions();
 

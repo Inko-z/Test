@@ -33,7 +33,7 @@ void printoptions(){
     std::cout << "4.  Remove an Existing Passenger.\n";
     std::cout << "5.  Save data.\n";
     std::cout << "6.  Quit.\n\n";
-    std::cout << "Enter your choice: (1, 2, 3, 4, 5 or 6\n";
+    std::cout << "Enter your choice: (1, 2, 3, 4, 5 or 6):\n";
 }
 void printwronginput(){
     std::cout << "Invalid input, please try again: \n";
