@@ -5,28 +5,27 @@
 
 //Default ctor
 Flight::Flight(){
-    number_of_rows = 0;
-    number_of_columns = 0;
+    number_of_rows = 1;
+    number_of_columns = 1;
     flight_id = "";
     pass_listH = nullptr;
+    FSmap;
 }
 //custom ctor
-Flight::Flight(int rows, int columns, const std::string& id, PassengerList* passList){
+Flight::Flight(int rows, int columns, const std::string& id, PassengerList* passList) {
     number_of_rows = rows;
     number_of_columns = columns;
     flight_id = id;
     pass_listH = passList;
-    SeatMap Fmap(number_of_rows, std::vector<Seat>(number_of_columns)); //creating FMAP and setting each seat row and column
-    for(int j = 0; j < number_of_rows; j++){
-    for(int i = 0; i < number_of_columns;i++){
-         Fmap[j][i] = Seat();
-         Fmap[j][i].set_row(i + 1 );
-         Fmap[j][i].set_column('A' + j);
-         }
-}
-}
 
-    
+    FSmap.resize(rows);
+    for(int i = 0; i < rows; i++){
+        FSmap.at(i).resize(columns);
+        for(int j = 0; j < columns; j++){
+            FSmap.at(i).at(j) = 1;
+        }
+    }
+}
 
 //copy ctor
 Flight::Flight(const Flight& rhs){
@@ -38,21 +37,24 @@ Flight::Flight(const Flight& rhs){
     } else {
         pass_listH = nullptr;
     }
-    FSmap = rhs.FSmap;
+    for (std::vector<int> row : rhs.FSmap) {
+        // Copy each row (inner vector)
+        FSmap.push_back(row);
+    }
 }  
-//implementation
 
+
+//implementation
 
 int Flight::get_number_of_rows()const{return number_of_rows;}
 int Flight::get_number_of_columns()const{return number_of_columns;}
 std::string Flight::get_flight_id()const{return flight_id;}
-SeatMap* Flight::get_FSmap(){
-    SeatMap* s = &FSmap;
-    return s;}
+int Flight::get_seat_status(int row, int col){
+    return FSmap.at(row).at(col);}
 void Flight::set_number_of_rows(int r){number_of_rows=r;}
 void Flight::set_number_of_columns(int c){number_of_columns=c;}
 void Flight::set_flight_id(std::string f_id){flight_id=f_id;}
-void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
+//void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
 //getter and setter for pass_listh
 // const PassengerList* Flight::get_passlist()const{
 //     return pass_listH;
@@ -76,7 +78,7 @@ void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
 // last -> next = new_id;
 // } Getter and setter removed temp
 
-void DisplaySeatMap(Flight& f) {
+void DisplaySeatMap(Flight f) {
     // Display column labels
     int r = f.get_number_of_rows();
     int c = f.get_number_of_columns();
@@ -89,21 +91,19 @@ void DisplaySeatMap(Flight& f) {
         
     }
     std::cout << "\n";
-    SeatMap *sm = f.get_FSmap();
-    Seat * s = nullptr;
     for(int i = 0; i < r; i++){
         //print row num
-        std::cout << char(i+1) << " ";
+        std::cout << i+1 << " ";
         //print seats
         for(int j = 0; j < c; j++){
-            
-            s = &(*sm)[i][j];
-        if((*s).get_seat_status()){ //if seat is available
+            if(f.get_seat_status(i,j)){ //if seat is available
             std::cout << "[ ]";
-        }else{                      //if seat is not available
-            std::cout << "[X]";
-        }
-        }  
+            }else{
+            std::cout << "[X]";  //if seat is not available
+            }
+            }
+            std::cout << '\n';
+        } 
+
         std::cout <<'\n'; //starts the next line
-    }
 }
