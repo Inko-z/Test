@@ -30,6 +30,7 @@ class Flight {
     void insertID(int& id);
     void update_FSmap();
     void DisplayPassInfo();
+    bool RemovePassengerById(int PassengerId);
 
 
   private:          
