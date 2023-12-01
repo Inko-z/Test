@@ -8,7 +8,7 @@
 
 using namespace std;
 
-string extract_the_line(ifstream stream){
+string extract_the_line(ifstream& stream){
     //returns a string of the line the stream pointer is pointing to
     //then makes the file ptr go to next line
 
@@ -36,6 +36,7 @@ Airline extract_airline(string flight_info_line){
         i++;
     }
     a.set_name(a_name);
+    return a;
 }
 
 Flight* extract_flight(string flight_info_line){
@@ -169,4 +170,5 @@ Passenger* extract_passenger(string passenger_info_line){
     }while(i<passenger_info_line.length() &&  isdigit(passenger_info_line.at(i)) );
     int int_id = stoi(id);
     p->set_pass_id(int_id);
+    return p;
 }

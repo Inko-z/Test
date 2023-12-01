@@ -26,14 +26,16 @@ int main(){
     fl1->next = nullptr;
     fl1->flight_id = f1->get_flight_id();
     a1.set_list(fl1); // sets first flightlist struct as head of list
-
+    
     while(!readingstream.eof()){
         std::string line = extract_the_line(readingstream);
         Passenger* new_pass = extract_passenger(line);
-        if(f1->pass_listH == nullptr || new_pass.){
-
-        }
+        PassengerList* p1 = new PassengerList; // first passengerlist struct
+        
+        p1->next = f1->get_pass_listH();
+        f1->set_pass_listH(p1);
     }
+    
 
     printfirstmessege();
     printreturnmessege();

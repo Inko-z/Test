@@ -71,6 +71,15 @@ void Flight::set_FSmap(const SeatMap& fmap){FSmap = fmap;}
 // }
 // last -> next = new_id;
 // } Getter and setter removed temp
+
+void Flight::set_pass_listH(PassengerList* h){
+    pass_listH = h;
+}
+
+PassengerList* Flight::get_pass_listH()const{
+    return pass_listH;
+}
+
 void DisplaySeatMap(int flight_rows, int flight_columns) {
     // Display column labels
     std::cout << "    ";
