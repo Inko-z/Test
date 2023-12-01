@@ -19,6 +19,8 @@ int main(){
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
+    std::string line = extract_the_line(readingstream);
+    
 
     printfirstmessege();
     printreturnmessege();
@@ -58,6 +60,29 @@ int main(){
             }
 
 
+        }
+    }
+    
+    while(1){
+        std::cin >> returnchar;
+        if(returnchar == '1'){
+
+        }
+        if(returnchar == '2'){
+            
+        }
+        if(returnchar == '3'){
+            
+        }
+        if(returnchar == '4'){
+            
+        }
+        if(returnchar == '5'){
+            
+        }
+        if(returnchar == '6'){
+            std::cout<<"\nProgram Terminated"<<std::endl;
+            break;
         }
     }
 }

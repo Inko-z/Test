@@ -90,7 +90,7 @@ Passenger* extract_passenger(string passenger_info_line){
     //put info into passenger 
     Passenger* p = new Passenger;
 
-    string fname, lname, phone, seat, id;
+    string fname, lname, phone, seatrow, seatcol, id;
 
     int i;
     for(i = 0; passenger_info_line.at(i) != ' ' && isalpha(passenger_info_line.at(i)); i++ ){
@@ -149,11 +149,14 @@ Passenger* extract_passenger(string passenger_info_line){
         i++;
     }
     do{
-        seat.push_back(passenger_info_line.at(i));
+        seatrow.push_back(passenger_info_line.at(i));
         i++;
-    }while(passenger_info_line.at(i) != ' ' && (isdigit(passenger_info_line.at(i)) || isalpha(passenger_info_line.at(i))));
-
-    //set seat here(?)
+    }while(passenger_info_line.at(i) != ' ' && (isdigit(passenger_info_line.at(i)) ));
+    do{
+        seatcol.push_back(passenger_info_line.at(i));
+        i++;
+    }while(passenger_info_line.at(i) != ' ' && (isalpha(passenger_info_line.at(i)) ));
+    //set seat here
 
 
 
