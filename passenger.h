@@ -11,7 +11,7 @@ class Passenger {
    std::string get_Lname()const;
    std::string get_phone()const;
    int get_pass_id()const;
-   Seat get_seat()const;
+   Seat* get_seat()const;
    void set_Fname(std::string& fname);
    void set_Lname(std::string& lname);
    void set_phone(std::string& pho);

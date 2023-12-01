@@ -25,8 +25,7 @@ int main(){
     Airline a1 = extract_airline(line); //makes airline object based on first line
     a1.set_num(1);
     Flight* f1 = extract_flight(line); //makes flight object on the heap based on first line
-
-
+    
     FlightList* fl1 = new FlightList{*f1, nullptr}; //first flightlist struct 
 
     a1.set_list(fl1); // sets first flightlist struct as head of list
@@ -37,8 +36,8 @@ int main(){
         Passenger* new_pass = extract_passenger(line);
         PassengerList* p1 = new PassengerList{*new_pass, nullptr}; // first passengerlist struct
         
-        p1->next = f1->get_pass_listH();
-        f1->set_pass_listH(p1);
+        p1->next = a1.get_list()->flight.get_pass_listH();
+        a1.get_list()->flight.set_pass_listH(p1);
         p1 = nullptr;
         delete new_pass;
         new_pass = nullptr;
@@ -61,7 +60,8 @@ int main(){
 
             std::cin >> selection;
             if(selection == '1'){
-                DisplaySeatMap(a1.get_list()->flight);
+                a1.get_list()->flight.update_FSmap();
+                DisplaySeatMap(a1.get_list()->flight); 
                 pressreturntocontinue();
                 printoptions();
 
