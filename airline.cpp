@@ -1,8 +1,8 @@
 #include<vector>
 #include <string>
 #include <iostream>
-#include "airline.h"
 
+#include "airline.h"
 Airline::Airline(){
     airline_name = '\0';
     flight_listH = nullptr;
@@ -78,7 +78,7 @@ const FlightList* Airline::get_list()const{
     return flight_listH;
 }
 
-const int Airline::get_num()const{
+int Airline::get_num()const{
     return number_of_flights;
 }
 

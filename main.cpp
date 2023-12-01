@@ -15,8 +15,8 @@ void printoptions();
 void printwronginput();
 
 int main(){
+    
     std::ifstream readingstream("flight_info.txt");
-    std::ofstream writingstream("flight_info.txt");
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
@@ -42,11 +42,43 @@ int main(){
 
     printfirstmessege();
     printreturnmessege();
-    char returnchar;
-    std::cin >> returnchar;
+    char returnchar = std::cin.get();
+    int runprogram = 1; //bool logic to eventually exit the program
+    int selection;
 
-    if(returnchar == '\r'){
+    if(returnchar == '\n'){
+        while(runprogram){ ///MAIN PROGRAM LOOP///
+    
+            printoptions();
+            std::cin >> selection;
 
+            if(selection == 1){
+
+            }else if (selection == 2)
+            {
+
+            }
+            else if (selection == 3)
+            {
+
+            }
+            else if (selection == 4)
+            {
+
+            }else if (selection == 5)
+            {
+
+            }else if (selection == 6)
+            {
+                runprogram = 0;
+            }
+            else
+            {
+                
+            }
+
+
+        }
     }
     
     while(1){
