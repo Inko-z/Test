@@ -27,8 +27,9 @@ class Flight {
     void set_FSmap_seat(int row, int column, int value);
     void set_pass_listH(PassengerList* h);
     PassengerList* get_pass_listH()const;
-    void insertID(int& id);
+    void insert_passener(std::string fname, std::string lname, std::string phone,int id, Seat* s);
     void update_FSmap();
+    void addpassenger();
 
 
   private:          

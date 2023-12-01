@@ -120,3 +120,62 @@ void DisplaySeatMap(Flight f) {
 
         std::cout <<'\n'; //starts the next line
 }
+void Flight::addpassenger(){
+    std::string fname, lname, phone;
+    int id = 0;
+    Seat* s;
+    PassengerList* p = nullptr;
+
+    std::cout<<"\nEnter First Name: ";
+    std::cin >> fname;
+    std::cout<<"\nEnter Last Name: ";
+    std::cin >> lname;
+    std::cout<<"\nEnter Phone Number: ";
+    std::cin >> phone;
+    for (p = pass_listH; p->next != nullptr; p = p->next) {
+        if((p->Pass).get_pass_id() > id){ // finding highest pass Id
+            id = (p->Pass).get_pass_id();
+        }
+    }
+    id +=1; //making it a unique id
+
+    DisplaySeatMap(*this);
+    int r;
+    char c;
+    std::cout << "\nSelect an available seat: ";
+    std::cout << "\nselect row: ";
+    std::cin >> r;
+    std::cout << "\nselect column: ";
+    std::cin >> c;
+    while(!this->get_seat_status(r, int(c - 'A'))){
+        std::cout << "\nSelect an available seat: ";
+        std::cout << "\nselect row: ";
+        std::cin >> r;
+        std::cout << "\nselect column: ";
+        std::cin >> c;
+    }
+    Seat* tempseat = new Seat;
+    tempseat->set_row(r);
+    tempseat->set_column(c);
+    insert_passener( fname, lname, phone, id, tempseat);
+    tempseat = nullptr;
+}
+
+void Flight::insert_passener(std::string fname, std::string lname, std::string phone,int id, Seat* s){
+    PassengerList * p = new PassengerList;
+    p->Pass.set_Fname(fname);
+    p->Pass.set_Lname(lname);
+    p->Pass.set_phone(phone);
+    p->Pass.set_pass_id(id);
+    p->Pass.set_seat(s);
+    p->next = nullptr;
+
+    if (pass_listH == nullptr) {
+        pass_listH = p;
+        return;
+    }
+
+    PassengerList* before;
+    for (before = pass_listH; p->next != nullptr; before = before->next) {  }// finiding last PassengerList struct
+    before->next = p;
+}

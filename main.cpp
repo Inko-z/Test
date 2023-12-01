@@ -43,24 +43,17 @@ int main(){
         new_pass = nullptr;
     }
     //////////////////////////////////////FIRST SETUP////////////////////////////////
+    a1.get_list()->flight.update_FSmap(); //updating the seat map with all info
     printfirstmessege();
     int runprogram = 1; //bool logic to eventually exit the program
     char selection;
-
-    ////////////////////////////////////THIS IS A TESTING THING/////////////////////////////////
-    std::string s = "booger";
-    Flight f(24, 6, s, nullptr);
     ////////////////////////////////////////////////////////////////////////////////////////////
     if(pressreturntocontinue()){
         printoptions();
         ///////////////////////////////////////////MAIN PROGRAM LOOP///////////////////////////////////////////
         while(runprogram){ 
-
-
-
             std::cin >> selection;
             if(selection == '1'){
-                a1.get_list()->flight.update_FSmap();
                 DisplaySeatMap(a1.get_list()->flight); 
                 pressreturntocontinue();
                 printoptions();
@@ -72,6 +65,8 @@ int main(){
             }
             else if (selection == '3')
             {
+                (a1.get_list()->flight).addpassenger();
+                (a1.get_list()->flight).update_FSmap();
                 pressreturntocontinue();
                 printoptions();            
             }
