@@ -13,7 +13,7 @@
 
 int main(){
     
-    std::ifstream readingstream("flight_info.txt");
+    std::ifstream readingstream("C:\\Users\\nieto\\OneDrive\\Desktop\\Final 337 proj\\ENSF337-Term-Project-1\\flight_info.txt");
     
     //read all data from file and turn it into objects, lists, ect. in the program
     // airline ptr
@@ -67,6 +67,7 @@ int main(){
 
             }else if (selection == '2')
             {
+                DisplayPassInfo();
                 pressreturntocontinue();
                 printoptions();
             }
