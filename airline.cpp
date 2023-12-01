@@ -15,15 +15,7 @@ Airline::Airline(std::string name, FlightList* list, int num){
     number_of_flights = num;
 }
 
-/*Airline::Airline(const Airline& source){
-    airline_name = source.airline_name;
-    number_of_flights = source.number_of_flights;
-    flight_listH = nullptr;
-    for(FlightList* p = source.flight_listH; p!= nullptr;p = p -> next){
-        insert(p->flight);
-}
-}
-*/
+
 Airline::Airline(const Airline& source) {
     // Copy the airline name and the number of flights
     airline_name = source.airline_name;
@@ -82,28 +74,6 @@ int Airline::get_num()const{
     return number_of_flights;
 }
 
-/*void Airline::insert(std::string& Name){
-    FlightList* newflight = new FlightList;
-    if(newflight == 0){
-        std::cout<<"Error allocating space for a new flight"<< std::endl;
-        std::exit(1);
-    }
-    newflight -> flight_id = Name;
-    newflight -> next = nullptr;
-
-    FlightList * last = flight_listH;
-
-    if(flight_listH == nullptr){
-        flight_listH = newflight;
-        return;
-    }
-
-    while(last -> next != nullptr){
-        last = last -> next;
-    }
-    last -> next = newflight;
-}
-*/
 void Airline::insert(Flight* flight){
     FlightList* new_flight = new FlightList{*flight, nullptr};
     new_flight->next = flight_listH;

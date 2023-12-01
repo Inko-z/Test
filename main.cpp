@@ -23,20 +23,25 @@ int main(){
     std::string line = extract_the_line(readingstream); // reads first line
 
     Airline a1 = extract_airline(line); //makes airline object based on first line
+    a1.set_num(1);
     Flight* f1 = extract_flight(line); //makes flight object on the heap based on first line
 
-    FlightList* fl1 = new FlightList; //first flightlist struct 
-    fl1->next = nullptr;
-    fl1->flight_id = f1->get_flight_id();
+
+    FlightList* fl1 = new FlightList{*f1, nullptr}; //first flightlist struct 
+
     a1.set_list(fl1); // sets first flightlist struct as head of list
+
     
     while(!readingstream.eof()){
         std::string line = extract_the_line(readingstream);
         Passenger* new_pass = extract_passenger(line);
-        PassengerList* p1 = new PassengerList; // first passengerlist struct
+        PassengerList* p1 = new PassengerList{*new_pass, nullptr}; // first passengerlist struct
         
         p1->next = f1->get_pass_listH();
         f1->set_pass_listH(p1);
+        p1 = nullptr;
+        delete new_pass;
+        new_pass = nullptr;
     }
     
 

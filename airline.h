@@ -23,7 +23,6 @@ class Airline {
     const FlightList* get_list()const;
     int get_num()const;
 
-    //void insert(std::string& Name);
     void insert(Flight* flight);
   private:          
     std::string airline_name;
