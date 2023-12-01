@@ -5,6 +5,10 @@
 
 #include "airline.cpp"
 #include "extraction.cpp"
+#include "airline.cpp"
+#include "flight.h"
+#include "passenger.h"
+#include "seat.h"
 
 void printfirstmessege();
 void printreturnmessege();
