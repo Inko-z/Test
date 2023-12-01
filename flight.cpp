@@ -9,7 +9,7 @@ Flight::Flight(){
     number_of_columns = 1;
     flight_id = "";
     pass_listH = nullptr;
-    FSmap;
+    //FSmap is 0 matrix
 }
 //custom ctor
 Flight::Flight(int rows, int columns, const std::string& id, PassengerList* passList) {
@@ -86,7 +86,7 @@ PassengerList* Flight::get_pass_listH()const{
     return pass_listH;
 }
 
-void DisplaySeatMap(int flight_rows, int flight_columns) {
+void DisplaySeatMap(Flight f) {
     // Display column labels
     int r = f.get_number_of_rows();
     int c = f.get_number_of_columns();

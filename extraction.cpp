@@ -27,10 +27,9 @@ Airline extract_airline(string flight_info_line){
     //put info extracted from said airline into new airline object
     //returns an airline object
     Airline a;
-
     string a_name;
 
-    int i;
+    int i = 0;
     while( isalpha(flight_info_line.at(i)) ){
         a_name.push_back(flight_info_line.at(i));
         i++;

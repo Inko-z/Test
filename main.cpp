@@ -31,7 +31,7 @@ int main(){
 
     a1.set_list(fl1); // sets first flightlist struct as head of list
 
-    
+    ///////////////READING FILE THE FIRST TIME///////////////////////////////////////////
     while(!readingstream.eof()){
         std::string line = extract_the_line(readingstream);
         Passenger* new_pass = extract_passenger(line);
@@ -42,9 +42,8 @@ int main(){
         p1 = nullptr;
         delete new_pass;
         new_pass = nullptr;
- 
-    
-
+    }
+    //////////////////////////////////////FIRST SETUP////////////////////////////////
     printfirstmessege();
     int runprogram = 1; //bool logic to eventually exit the program
     char selection;
@@ -55,7 +54,7 @@ int main(){
     ////////////////////////////////////////////////////////////////////////////////////////////
     if(pressreturntocontinue()){
         printoptions();
-///////////////////////////////////////////MAIN PROGRAM LOOP///////////////////////////////////////////
+        ///////////////////////////////////////////MAIN PROGRAM LOOP///////////////////////////////////////////
         while(runprogram){ 
 
 
