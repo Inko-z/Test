@@ -4,11 +4,11 @@
 #include <fstream>
 
 #include "airline.cpp"
-#include "extraction.cpp"
 #include "airline.cpp"
 #include "flight.h"
 #include "passenger.h"
 #include "seat.h"
+#include "extraction.cpp"
 
 void printfirstmessege();
 void printreturnmessege();
