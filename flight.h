@@ -29,7 +29,7 @@ class Flight {
     PassengerList* get_pass_listH()const;
     void insertID(int& id);
     void update_FSmap();
-    void DisplayPassInfo(Flight F);
+    void DisplayPassInfo();
 
 
   private:          
