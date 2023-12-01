@@ -66,7 +66,7 @@ int main(){
 
             }else if (selection == '2'){
               
-              a1.get_list()->flight.DisplayPassInfo(a1.get_list()->flight);
+              a1.get_list()->flight.DisplayPassInfo();
                 pressreturntocontinue();
                 printoptions();
             }
