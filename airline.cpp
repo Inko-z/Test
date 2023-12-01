@@ -66,7 +66,7 @@ const std::string Airline::get_name()const{
     return airline_name;
 }
 
-const FlightList* Airline::get_list()const{
+FlightList* Airline::get_list()const{
     return flight_listH;
 }
 
