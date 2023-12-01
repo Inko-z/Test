@@ -120,3 +120,29 @@ void DisplaySeatMap(Flight f) {
 
         std::cout <<'\n'; //starts the next line
 }
+void Flight::DisplayPassInfo() {
+    PassengerList* currentPassenger = pass_listH;
+
+    if (currentPassenger == nullptr) {
+        std::cout << "No passengers on this flight." << std::endl;
+        return;
+    }
+    cout<<"\n\n\n+++++++++++++++++++++++++++++++++";
+    std::cout << "\nPassenger Information for Flight " << get_flight_id() << ":" << std::endl;
+
+    while (currentPassenger != nullptr) {
+        Passenger* passenger = &(currentPassenger->Pass);
+
+        std::cout << "Passenger ID: " << passenger->get_pass_id() << std::endl;
+        std::cout << "Name: " << passenger->get_Fname() << " " << passenger->get_Lname() << std::endl;
+        std::cout << "Phone: " << passenger->get_phone() << std::endl;
+        std::cout << "Seat: Row " << passenger->get_seat()->get_row() << " Column " << passenger->get_seat()->get_column() << std::endl;
+        cout<<"++++++++++++++++++++++++++++++++++\n\n\n";
+        currentPassenger = currentPassenger->next;
+    
+        if (currentPassenger != nullptr) {
+            std::cout << "---------------------" << std::endl;
+        }
+    }
+}
+
