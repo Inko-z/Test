@@ -8,13 +8,16 @@
 #include "passenger.h"
 #include "seat.h"
 #include "Globalfunctions.h"
-
+using namespace std;
 
 int pressreturntocontinue(){
     std::cout <<"<<< Press Return to Continue >>>\n";
-    char returnchar;
-    std::cin >> returnchar;
+    string Input;
+    std::getline(std::cin, Input);
+    if(Input.empty())
     return 1;
+    else
+    return 0;
 }
 void printfirstmessege(){
     std::cout << "Version: 1.0\n";
