@@ -127,8 +127,8 @@ void DisplaySeatMap(Flight f) {
 
         std::cout <<'\n'; //starts the next line
 }
-void Flight::DisplayPassInfo() {
-    PassengerList* currentPassenger = pass_listH;
+void Flight::DisplayPassInfo(Flight f) {
+    PassengerList* currentPassenger = get_pass_listH();
 
     if (currentPassenger == nullptr) {
         std::cout << "No passengers on this flight." << std::endl;

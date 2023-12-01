@@ -27,6 +27,7 @@ class Flight {
     void set_pass_listH(PassengerList* h);
     PassengerList* get_pass_listH()const;
     void insertID(int& id);
+    void DisplayPassInfo(Flight F);
 
 
   private:          

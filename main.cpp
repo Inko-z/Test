@@ -10,7 +10,6 @@
 #include "extraction.cpp"
 #include "Globalfunctions.h"
 
-
 int main(){
     
     std::ifstream readingstream("C:\\Users\\nieto\\OneDrive\\Desktop\\Final 337 proj\\ENSF337-Term-Project-1\\flight_info.txt");
@@ -61,13 +60,13 @@ int main(){
 
             std::cin >> selection;
             if(selection == '1'){
-                DisplaySeatMap(f); /////////////////////////testing////////////////////////////////////////
+                DisplaySeatMap(a1.get_list()->flight); /////////////////////////testing////////////////////////////////////////
                 pressreturntocontinue();
                 printoptions();
 
-            }else if (selection == '2')
-            {
-                DisplayPassInfo();
+            }else if (selection == '2'){
+              
+              a1.get_list()->flight.DisplayPassInfo(a1.get_list()->flight);
                 pressreturntocontinue();
                 printoptions();
             }
