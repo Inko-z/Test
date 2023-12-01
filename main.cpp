@@ -72,17 +72,15 @@ int main(){
                 printoptions();            
             }
             else if (selection == '4')
-            {   string removeinput;
+            {   int removeinput;
                 cout<<"Enter PassengerID of Passenger you wish to remove"<<endl;
                 cin>>removeinput;
-                if (stoi(removeinput) == 0){
-                exit(1);}
-                else{
-                int input = stoi(removeinput);
-                a1.get_list()->flight.RemovePassengerById(input);
+            
+            
+                a1.get_list()->flight.RemovePassengerById(removeinput);
                 pressreturntocontinue();
                 printoptions();
-                }
+                
             }else if (selection == '5')
             {
                 pressreturntocontinue();
