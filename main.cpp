@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <limits>
 #include <iomanip>
 
 #include "airline.h"
@@ -75,13 +76,14 @@ int main(){
             else if (selection == '4')
             {   int removeinput;
                 cout<<"Enter PassengerID of Passenger you wish to remove"<<endl;
-                cin>>removeinput;
-                
-            
+                while (!(std::cin >> removeinput)){
+                    std::cin.clear();
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                    std::cout << "Invalid input. Please enter an integer: ";
+                   }
                 a1.get_list()->flight.RemovePassengerById(removeinput);
                 pressreturntocontinue();
                 printoptions();
-                
             }else if (selection == '5')
             {
                 std::cout<<"Do you want to save the data in the flight_info.txt? Please answer <Y or N>"<<std::endl;
