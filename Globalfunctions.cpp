@@ -41,3 +41,28 @@ void printoptions(){
 void printwronginput(){
     std::cout << "Invalid input, please try again: \n";
 }
+int validate_name(std::string& name){
+    if(name.length()>18){
+        return 0;
+    }
+    for(int i = 0; i< name.length();i++){
+        if(!isalpha(name.at(i))){
+            return 0;
+        }
+    }
+    return 1;
+}
+int validate_phone(std::string& pnum){
+    if(pnum.length() != 12){
+        return 0;
+    }
+    for(int i = 0; i< pnum.length();i++){
+        if( isdigit(pnum.at(i)) || pnum.at(i) == '-'){
+            continue;
+        }
+        else{
+            return 0;
+        }
+    }
+    return 1;
+}
