@@ -102,9 +102,7 @@ int main(){
                 }
                 else{
                     std::cout<<"New Data was not saved."<<std::endl;
-                }       
-                pressreturntocontinue();
-                printoptions();       
+                }             
             }else if (selection == '6')
             {
                 runprogram = 0;
