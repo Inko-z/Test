@@ -73,6 +73,7 @@ int main(){
 
             }else if (selection == 5)
             {
+                
                 std::cout<<"Do you want to save the data in the flight_info.txt? Please answer <Y or N>"<<std::endl;
                 char ans;
                 std::cin >> ans;
@@ -101,10 +102,7 @@ int main(){
                 }
                 else{
                     std::cout<<"New Data was not saved."<<std::endl;
-                }
-                pressreturntocontinue();
-                printoptions();                
-
+                }              
             }else if (selection == 6)
             {
                 runprogram = 0;
