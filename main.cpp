@@ -122,9 +122,10 @@ int main(){
             }
             else
             {
-                std::cout << "Worng input\n";
-
+                std::cout << "Invalid input, please enter a number between 1 and 6\n";
+                continue;
             }
         }
+        std::cout<<"Program Terminated"<<std::endl;
     }
 }
