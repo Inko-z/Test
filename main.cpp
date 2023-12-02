@@ -105,7 +105,7 @@ int main(){
                 pressreturntocontinue();
                 printoptions();               
 
-            }else if (selection == '6')
+            }else if (selection == 6)
             {
                 runprogram = 0;
             }
