@@ -128,13 +128,36 @@ void Flight::addpassenger(){
     std::string fname, lname, phone;
     int id = 0;
     PassengerList* p = nullptr;
-
-    std::cout<<"\nEnter First Name: ";
-    std::cin >> fname;
-    std::cout<<"\nEnter Last Name: ";
-    std::cin >> lname;
-    std::cout<<"\nEnter Phone Number: ";
-    std::cin >> phone;
+    while(1){
+        std::cout<<"\nEnter First Name: ";
+        std::cin >> fname; 
+        if(validate_name(fname)){
+            break;
+        }
+        else{
+            std::cout<<"Invalid First Name"<<std::endl;
+        }
+    }
+    while(1){
+        std::cout<<"\nEnter Last Name: ";
+        std::cin >> lname; 
+        if(validate_name(lname)){
+            break;
+        }
+        else{
+            std::cout<<"Invalid Last Name"<<std::endl;
+        }
+    }
+    while(1){
+        std::cout<<"\nEnter Phone Number: ";
+        std::cin >> phone; 
+        if(validate_phone(phone)){
+            break;
+        }
+        else{
+            std::cout<<"Invalid Phone Number"<<std::endl;
+        }
+    }
     for (p = pass_listH; p->next != nullptr; p = p->next) {
         if((p->Pass).get_pass_id() > id){ // finding highest pass Id
             id = (p->Pass).get_pass_id();
