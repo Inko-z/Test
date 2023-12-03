@@ -69,11 +69,15 @@ PassengerList* Flight::get_pass_listH()const{
 }
 void Flight::update_FSmap(){
     int r, c;
-    
+    for (size_t i = 0; i < FSmap.size(); ++i) {
+        for (size_t j = 0; j < FSmap[i].size(); ++j) {
+            FSmap[i][j] = 1;
+        }
+    }
     for (PassengerList* p = pass_listH; p != nullptr; p = p->next) {  //run through list of passengers
         r = (p->Pass).get_seat()->get_row();
         c = int((p->Pass).get_seat()->get_column() - 'A');//convert char into int
-        this->set_FSmap_seat(r, c, 0);  //setting seat to unavailable
+        this->set_FSmap_seat(r-1, c, 0);  //setting seat to unavailable
     }
 }
 void Flight::set_FSmap_seat(int row, int column, int value){
@@ -120,6 +124,87 @@ void DisplaySeatMap(Flight f) {
 
         std::cout <<'\n'; //starts the next line
 }
+void Flight::addpassenger(){
+    std::string fname, lname, phone;
+    int id = 0;
+    PassengerList* p = nullptr;
+    while(1){
+        std::cout<<"\nEnter First Name: ";
+        std::cin >> fname; 
+        if(validate_name(fname)){
+            break;
+        }
+        else{
+            std::cout<<"Invalid First Name"<<std::endl;
+        }
+    }
+    while(1){
+        std::cout<<"\nEnter Last Name: ";
+        std::cin >> lname; 
+        if(validate_name(lname)){
+            break;
+        }
+        else{
+            std::cout<<"Invalid Last Name"<<std::endl;
+        }
+    }
+    while(1){
+        std::cout<<"\nEnter Phone Number: ";
+        std::cin >> phone; 
+        if(validate_phone(phone)){
+            break;
+        }
+        else{
+            std::cout<<"Invalid Phone Number"<<std::endl;
+        }
+    }
+    for (p = pass_listH; p->next != nullptr; p = p->next) {
+        if((p->Pass).get_pass_id() > id){ // finding highest pass Id
+            id = (p->Pass).get_pass_id();
+        }
+    }
+    id +=1; //making it a unique id
+
+    DisplaySeatMap(*this);
+    int r;
+    char c;
+    std::cout << "\nSelect an available seat: ";
+    std::cout << "\nselect row: ";
+    std::cin >> r;
+    std::cout << "\nselect column: ";
+    std::cin >> c;
+    while(!get_seat_status(r-1, int(c - 'A'))){
+        std::cout << "\nSelect an available seat: ";
+        std::cout << "\nselect row: ";
+        std::cin >> r;
+        std::cout << "\nselect column: ";
+        std::cin >> c;
+    }
+    Seat* tempseat = new Seat;
+    tempseat->set_row(r);
+    tempseat->set_column(c);
+    insert_passener( fname, lname, phone, id, tempseat);
+    tempseat = nullptr;
+}
+
+void Flight::insert_passener(std::string fname, std::string lname, std::string phone,int id, Seat* s){
+    PassengerList * p = new PassengerList;
+    p->Pass.set_Fname(fname);
+    p->Pass.set_Lname(lname);
+    p->Pass.set_phone(phone);
+    p->Pass.set_pass_id(id);
+    p->Pass.set_seat(s);
+    p->next = nullptr;
+
+    if (pass_listH == nullptr) {
+        pass_listH = p;
+        return;
+    }
+
+    PassengerList* after = pass_listH;
+    pass_listH = p;
+    p->next = after;
+}
 void Flight::DisplayPassInfo() {
     PassengerList* currentPassenger = pass_listH;
 
@@ -145,4 +230,24 @@ void Flight::DisplayPassInfo() {
         }
     }
 }
+bool Flight::RemovePassengerById(int PassengerId) {
+    PassengerList* current = get_pass_listH();
+    PassengerList* previous = nullptr;
+    while (current != nullptr){
+        if (current->Pass.get_pass_id() == PassengerId) {
+            if (previous == nullptr) {
+                pass_listH = current->next;
+            } else {
+                previous->next = current->next;
+            }
+            delete current;
 
+            std::cout << "Passenger with ID " << PassengerId << " removed successfully." << std::endl;
+            return true;
+        }
+        previous = current;
+        current = current->next;
+    }
+    std::cout << "Passenger with ID " << PassengerId << " not found." << std::endl;
+    return false;
+}
