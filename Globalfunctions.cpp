@@ -45,7 +45,7 @@ int validate_name(std::string& name){
     if(name.length()>18){
         return 0;
     }
-    for(size_t i = 0; i< name.length();i++){
+    for(int i = 0; i< name.length();i++){
         if(!isalpha(name.at(i))){
             return 0;
         }
@@ -56,7 +56,7 @@ int validate_phone(std::string& pnum){
     if(pnum.length() != 12){
         return 0;
     }
-    for(size_t i = 0; i< pnum.length();i++){
+    for(int i = 0; i< pnum.length();i++){
         if( isdigit(pnum.at(i)) || pnum.at(i) == '-'){
             continue;
         }
