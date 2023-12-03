@@ -1,4 +1,4 @@
-#include "passenger.h"
+#include "../headers/passenger.h"
 
 //DEFAULT CTR
 Passenger::Passenger(){

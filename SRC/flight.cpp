@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Globalfunctions.cpp"
-#include"flight.h"
+#include"../headers/flight.h"
 
 //Default ctor
 Flight::Flight(){

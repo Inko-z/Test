@@ -2,7 +2,7 @@
 #define AIRLINE_H
 #include<vector>
 #include <string>
-#include "flight.cpp"
+#include "../SRC/flight.cpp"
 struct FlightList{
     Flight flight;
     FlightList * next;

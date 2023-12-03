@@ -3,11 +3,11 @@
 #include <iostream>
 #include <fstream>
 
-#include "airline.h"
-#include "flight.h"
-#include "passenger.h"
-#include "seat.h"
-#include "Globalfunctions.h"
+#include "../headers/airline.h"
+#include "../headers/flight.h"
+#include "../headers/passenger.h"
+#include "../headers/seat.h"
+#include "../headers/Globalfunctions.h"
 using namespace std;
 
 int pressreturntocontinue(){

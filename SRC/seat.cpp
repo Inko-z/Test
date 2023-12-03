@@ -1,4 +1,4 @@
-#include"seat.h"
+#include"../headers/seat.h"
 
 //DEFAULT CTR
 Seat::Seat(){
