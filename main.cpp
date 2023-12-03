@@ -57,20 +57,20 @@ int main(){
             if(selection == '1'){
                 a1.get_list()->flight.update_FSmap();
                 DisplaySeatMap(a1.get_list()->flight); 
-                pressreturntocontinue();
+       
                 printoptions();
 
             }else if (selection == '2'){
               
               a1.get_list()->flight.DisplayPassInfo();
-                pressreturntocontinue();
+      
                 printoptions();
             }
             else if (selection == '3')
             {
                 (a1.get_list()->flight).addpassenger(); //Add new passenger
                 (a1.get_list()->flight).update_FSmap(); // update map
-                pressreturntocontinue();
+            
                 printoptions();            
             }
             else if (selection == '4')
@@ -82,7 +82,7 @@ int main(){
                     std::cout << "Invalid input. Please enter an integer: ";
                    }
                 a1.get_list()->flight.RemovePassengerById(removeinput);
-                pressreturntocontinue();
+         
                 printoptions();
             }else if (selection == '5')
             {
@@ -115,7 +115,7 @@ int main(){
                 else{
                     std::cout<<"New Data was not saved."<<std::endl;
                 } 
-                pressreturntocontinue();
+          
                 printoptions();               
 
             }else if (selection == '6')
