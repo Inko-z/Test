@@ -1,6 +1,6 @@
 #ifndef FLIGHT_H
 #define FLIGHT_H
-#include"passenger.cpp"
+#include"../SRC/passenger.cpp"
 #include<vector>
 #include <string>
 

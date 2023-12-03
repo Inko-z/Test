@@ -1,6 +1,6 @@
 #ifndef PASSENGER_H
 #define PASSENGER_H
-#include "seat.cpp"
+#include "../SRC/seat.cpp"
 #include <string>
 class Passenger {       
   public:  

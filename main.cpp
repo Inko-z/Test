@@ -5,12 +5,12 @@
 #include <limits>
 #include <iomanip>
 
-#include "airline.h"
-#include "flight.h"
-#include "passenger.h"
-#include "seat.h"
-#include "extraction.cpp"
-#include "Globalfunctions.h"
+#include "headers/airline.h"
+#include "headers/flight.h"
+#include "headers/passenger.h"
+#include "headers/seat.h"
+#include "SRC/extraction.cpp"
+#include "headers/Globalfunctions.h"
 
 int main(){
     

@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-#include "airline.h"
+#include "../headers/airline.h"
 Airline::Airline(){
     airline_name = '\0';
     flight_listH = nullptr;
@@ -42,12 +42,26 @@ Airline::Airline(const Airline& source) {
 }
 
 Airline::~Airline(){
-    while(flight_listH != nullptr)
-    {
-        FlightList* p = flight_listH;
-        flight_listH = flight_listH -> next;
-        delete p;
+    FlightList* fl = flight_listH, *flb;
+    while(fl != nullptr){
+       
+        if(fl->flight.get_pass_listH() != nullptr){
+            PassengerList * pl = fl->flight.get_pass_listH();
+            PassengerList * plb;
+        
+            while(pl != nullptr){
+                delete pl->Pass.get_seat();
+                plb = pl;
+                pl = pl->next;
+                delete plb->Pass.get_seat();
+            }   
+            
+        }
+        flb = fl;
+        fl = fl -> next;
+        delete flb;
     }
+    set_list(nullptr);
 }
 
 void Airline::set_name(std::string Name){

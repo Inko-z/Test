@@ -1,5 +1,5 @@
-#ifndef GLOBAL_FUNC
-#define GLOBAL_FUNC
+#ifndef GLOBAL_FUNCTIONS_H
+#define GLOBAL_FUNCTIONS_H
 
 int pressreturntocontinue();
 void printfirstmessege();
