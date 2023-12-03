@@ -26,7 +26,6 @@ Flight::Flight(int rows, int columns, const std::string& id, PassengerList* pass
         }
     }
 }
-
 //copy ctor
 Flight::Flight(const Flight& rhs){
     number_of_rows = rhs.number_of_rows;
