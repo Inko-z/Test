@@ -11,7 +11,6 @@ struct PassengerList{
 typedef std::vector< std::vector<int> > SeatMap;
 class Flight {       
   public:  
-    void checkseatavail();
     Flight();
     Flight(int rows, int columns, const std::string& id, PassengerList* passList);
     Flight(const Flight& rhs);

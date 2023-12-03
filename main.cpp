@@ -105,8 +105,8 @@ int main(){
                         while(current_pass != nullptr){  //continues to write in passengers until reaches end of linked list
                             std::string seat = std::to_string(current_pass->Pass.get_seat()->get_row()) + current_pass->Pass.get_seat()->get_column();
                             
-                            writingstream << current_pass->Pass.get_Fname()<<setw(20)<<current_pass->Pass.get_Lname()<<setw(20)
-                            << current_pass->Pass.get_phone()<<setw(20)<<seat<<setw(4)<<current_pass->Pass.get_pass_id()<<std::endl;
+                            writingstream << std::left << std::setw(20) << current_pass->Pass.get_Fname() << std::left << std::setw(20) <<current_pass->Pass.get_Lname()<< std::left << setw(20)
+                            << current_pass->Pass.get_phone()<< std::left << std::setw(4)<< seat << std::left<< std::setw(5)<<current_pass->Pass.get_pass_id()<<std::endl;
                             current_pass = current_pass->next;
                         }
                         std::cout<<"All the data in the passenger list was saved into flight_info.txt."<<std::endl;
