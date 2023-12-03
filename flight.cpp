@@ -26,24 +26,34 @@ Flight::Flight(int rows, int columns, const std::string& id, PassengerList* pass
         }
     }
 }
+// destructor 
 
+// Destructor definition
+Flight::~Flight() {
+    PassengerList* current = pass_listH;
+    while (current != nullptr) {
+        PassengerList* next = current->next;
+        delete current;
+        current = next;
+    }
+}
 //copy ctor
-Flight::Flight(const Flight& rhs){
+Flight::Flight(const Flight& rhs) {
     number_of_rows = rhs.number_of_rows;
     number_of_columns = rhs.number_of_columns;
     flight_id = rhs.flight_id;
-    if (rhs.pass_listH != nullptr) { //linked list copy
+    while (pass_listH != nullptr) {
+        PassengerList* temp = pass_listH;
+        pass_listH = pass_listH->next;
+        delete temp;
+    }
+    if (rhs.pass_listH != nullptr) {
         pass_listH = new PassengerList(*rhs.pass_listH);
     } else {
         pass_listH = nullptr;
     }
-    for (std::vector<int> row : rhs.FSmap) {
-        // Copy each row (inner vector)
-        FSmap.push_back(row);
-    }
-}  
-
-
+    FSmap = rhs.FSmap;
+}
 //implementation
 
 int Flight::get_number_of_rows()const{return number_of_rows;}
