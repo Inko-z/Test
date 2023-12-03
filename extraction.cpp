@@ -133,7 +133,7 @@ Passenger* extract_passenger(string passenger_info_line){
             lname.pop_back();
         }
     }
-    p->set_Fname(lname);
+    p->set_Lname(lname);
 
 
     while(passenger_info_line.at(i) == ' '){  // travels to the next non-white-space char

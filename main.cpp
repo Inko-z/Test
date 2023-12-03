@@ -96,7 +96,7 @@ int main(){
                     writingstream << a1.get_name() << current_flight->flight.get_flight_id() <<setw(9) << current_flight->flight.get_number_of_rows() << setw(6)
                     <<current_flight->flight.get_number_of_columns()<<std::endl; // writes in the airline name, rows, cols
 
-                    PassengerList* current_pass = f1->get_pass_listH();
+                    PassengerList* current_pass = a1.get_list()->flight.get_pass_listH();
 
                     if(current_pass == nullptr){
                         std::cout<<"No passengers to save in file."<<std::endl;
