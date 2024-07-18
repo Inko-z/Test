@@ -1,4 +1,4 @@
-# Airline Management Application
+# Airline Flight Management Application
 
 **By:** Rodolfo Gil-Pereira, Anastasia Zaharia, Sebastian Nieto
 
