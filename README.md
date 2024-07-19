@@ -1,10 +1,33 @@
 # Airline Flight Management Application
 
-**By:** Rodolfo Gil-Pereira, Anastasia Zaharia, Sebastian Nieto
+**By:**
+- Rodolfo Gil-Pereira
+- Anastasia Zaharia
+- Sebastian Nieto
 
-## Compilation Instructions
+## Description
+This application enables airline employees to efficiently manage passenger seat assignments and update passenger information. It supports adding and removing passengers, with all data stored in a straightforward text file format. The application is designed to simplify the management of passenger data, ensuring a smooth and organized workflow for airline operations.
 
-To compile the application, open a Cygwin terminal and navigate to the project directory. Then, execute the following command:
+## Instructions
+To set up and run the application, follow these steps:
 
-```sh
-g++ main.cpp -o main
+1. **Compilation**: 
+   - Open a Cygwin terminal and navigate to the project directory.
+   - Compile the application using the following command:
+     ```sh
+     g++ main.cpp -o main
+     ```
+
+2. **Running the Application**:
+   - Execute the compiled program with:
+     ```sh
+     ./main
+     ```
+
+3. **Testing the Application**:
+   - To change the testing file, delete the current `flight_info.txt` file and replace it with your own file formatted similarly to the example.
+
+## Demo
+Watch the [demo](https://youtu.be/Sfx5AB4YbE8) on YouTube.  
+<br>
+[![Airline Flight Management Application Demo](https://img.youtube.com/vi/Sfx5AB4YbE8/0.jpg)](https://youtu.be/Sfx5AB4YbE8)
